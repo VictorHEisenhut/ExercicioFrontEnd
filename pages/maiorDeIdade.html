@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<link rel="stylesheet" href="/styles/navigation.css">
+<link rel="stylesheet" href="/styles/content.css">
+<link rel="icon" type="image/png" href="/imgs/V.png">
+<script src="/scripts/verificaIdade.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica idade</title>
+</head>
+<body>
+    <header id="principal">
+        <img src="/imgs/V.png" alt="V" id="imgPrincipal"> <h1 id="name">ICTOR</h1>
+    </header>
+
+    <script src="/scripts/navigation.js"></script>
+    
+
+    <div class="container" >
+        
+        <div class="forms">
+            <form action="" method="get" >
+                <fieldset class="field">
+                    <legend>Dados</legend>
+
+                    <label for="nome">Informe seu nome:</label>
+                    <input type="text"  name="nome" id="nome" placeholder="Informe nome">
+
+                    <label for="idade">Informe sua idade:</label>
+                    <input type="number"  name="idade" id="idade" placeholder="Informe idade">
+
+                </fieldset>
+
+                <div class="containerBtn">
+
+                    <input onclick="verificarMaioridade()" type="button" class="btn" value="Verificar">
+                </div>
+
+            </form> 
+
+            <p><span id="result"></span></p>
+        </div>
+    </div>
+
+</body>
+</html>
