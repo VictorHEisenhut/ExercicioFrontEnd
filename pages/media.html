@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<link rel="stylesheet" href="/styles/navigation.css">
+<link rel="stylesheet" href="/styles/content.css">
+<script src="/scripts/calculaMedia.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média</title>
+</head>
+<body>
+    
+    <script src="/scripts/header.js"></script>
+
+    <script src="/scripts/navigation.js"></script>
+
+
+    <div class="container">
+
+        <div class="forms">
+            <form action="x" method="get">
+
+                <fieldset class="field">
+                    <legend>Calcule a média do aluno</legend>
+                    
+                    <label for="nome">Informe o nome do aluno:</label>
+                    <input type="text" name="nome" id="nome" placeholder="Informe nome">
+                    
+                    <label for="nome">Informe 1ª nota:</label>
+                    <input type="text" name="nota" id="primeiraNota" placeholder="Informe nome">
+                    
+                    <label for="nome">Informe 2ª nota:</label>
+                    <input type="text" name="nota" id="segundaNota" placeholder="Informe nome">
+                    
+                    <label for="nome">Informe 3º nota:</label>
+                    <input type="text" name="nota" id="terceiraNota" placeholder="Informe nome">
+                    
+                    <label for="nome">Informe frequência:</label>
+                    <input type="text" name="frequencia" id="freq" placeholder="Informe frequência">
+
+                </fieldset>
+                
+                <div class="containerBtn">
+                    
+                    <input onclick="calculaMedia()" type="button" class="btn" value="Calcular">
+                    
+                </div>
+            </form>
+
+            <h3><span id="result"></span></h3>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

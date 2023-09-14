@@ -44,3 +44,10 @@ input[type=text], input[type=number]{
     font-size: 18px;
     box-shadow: 0.1em 0.1em 0.3em rgba(37,76,11,255);
 }
+
+#result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
