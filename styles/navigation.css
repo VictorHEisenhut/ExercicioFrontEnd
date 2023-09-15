@@ -63,3 +63,17 @@ li{
     margin: 5px;
     font-size: 20px;
 }
+
+#imgFooter{
+    width: 150px;
+    height: 120px;
+}
+
+footer{
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
