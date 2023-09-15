@@ -33,3 +33,9 @@ function calculaIMC(){
 
 
 }
+
+function trocaVirgula(item) {
+    let temp = item.value;
+    temp.replace(',','.');
+    item.value = temp;
+}
