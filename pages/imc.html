@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <link rel="stylesheet" href="/styles/navigation.css">
+    <link rel="stylesheet" href="/styles/content.css">
+    <script src="/scripts/imc.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<body>
+    
+    <script src="/scripts/header.js"></script>
+
+    <script src="/scripts/navigation.js"></script>
+    
+
+    <div class="container">
+
+        <div class="forms">
+            <form action="x" method="get">
+                <fieldset class="field">
+                    <legend>Calcule seu IMC</legend>
+                        
+                    <label for="altura">Informe sua altura:</label>
+                    <input type="number" name="altura" id="altura" placeholder="Informe altura">
+
+                    <label for="peso">Informe seu peso:</label>
+                    <input type="number" name="peso" id="peso" placeholder="Informe peso">
+                    
+
+                </fieldset>
+
+                <div class="containerBtn">
+                    <input onclick="calculaIMC()" type="button" value="Calcular" class="btn">
+                </div>
+
+            </form>
+            <h3><span id="result"></span></h3>
+            
+        </div>
+
+        
+    </div>
+
+</body>
+</html>
