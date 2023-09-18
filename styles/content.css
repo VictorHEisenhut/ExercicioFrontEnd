@@ -59,9 +59,14 @@ input[type=text], input[type=number]{
  }
  
 
+
  .txt{
     display: flex;
     text-align: justify;
     font-size: 25px;
+    align-content: stretch;
+ }
+ li{
+    margin-left: 20px;
  }
  
