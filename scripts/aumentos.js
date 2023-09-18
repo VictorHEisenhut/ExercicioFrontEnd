@@ -5,28 +5,37 @@ function concedeAumento(){
     let salarioAumentado = 0;
     let span = document.getElementById("result")
     
-    switch(cargo){
-        case "gerente": 
-        salarioAumentado = salario * 1.05;
-        break;
-        
-        case "supervisor":
-            salarioAumentado = salario * 1.08;
+    if(salario >  0){
+        switch(cargo){
+            case "gerente": 
+            salarioAumentado = salario * 1.05;
             break;
             
-            case "operador":
-                salarioAumentado = salario * 1.09;
+            case "supervisor":
+                salarioAumentado = salario * 1.08;
                 break;
                 
-                case "outro":
-                    salarioAumentado *= 1.10;
+                case "operador":
+                    salarioAumentado = salario * 1.09;
                     break;
                     
-                }
+                    case "outro":
+                        salarioAumentado *= 1.10;
+                        break;
+                        
+                    }
+    
+                    let aumento = salarioAumentado - salario;
+                    
+        span.innerHTML = "Seu salário atual é de: " + salarioAumentado + "<br> Salário antigo: " + salario.toFixed(2) + "<br> Aumento de: " + aumento
 
-                let aumento = salarioAumentado - salario;
-                
-    span.innerHTML = "Seu salário atual é de: " + salarioAumentado + "<br> Salário antigo: " + salario + "<br> Aumento de: " + aumento
+    }
+    else{
+        span.innerHTML = "Salário inválido!"
+    }
+
+
+
 
 
 }
