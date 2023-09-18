@@ -6,7 +6,7 @@ function calculaMedia(){
     let tnota = parseFloat(document.getElementById("terceiraNota").value)
     let freq = parseInt(document.getElementById("freq").value)
 
-    if(pnota > 0 && pnota < 10 && snota > 0 && snota < 10 && tnota > 0 && tnota < 10 && freq > 0 && freq < 100){
+    if(pnota >= 0 && pnota <= 10 && snota >= 0 && snota <= 10 && tnota >= 0 && tnota <= 10 && freq >= 0 && freq <= 100){
         let media = ((pnota + snota + tnota) / 3).toFixed(2);
     
         if(media >= 6 && freq >= 70){
