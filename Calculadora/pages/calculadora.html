@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<script src="/scripts/calcular.js"></script>
+<link rel="stylesheet" href="/styles/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    
+    <form action="" method="get">
+        <fieldset class="field">
+            <legend>Calculadora</legend>
+
+            <label for="x">Valor X:</label>
+            <input type="number" id="x" placeholder="Insira o valor">
+
+            <label for="y">Valor Y:</label>
+            <input type="number" id="y" placeholder="Insira o valor">
+            
+            <div class="containerBtn">
+                <input type="button" class="btn" onclick="somar()" value="+" id="soma">
+                <input type="button" class="btn" onclick="subtrair()" value="-" id="subtracao">
+                <input type="button" class="btn" onclick="multiplicar()" value="×" id="multiplicacao">
+                <input type="button" class="btn" onclick="dividir()" value="÷" id="divisao">
+
+            </div>
+
+            
+        </fieldset>
+        
+    </form>
+    <span id="result"></span>
+
+
+
+</body>
+</html>
