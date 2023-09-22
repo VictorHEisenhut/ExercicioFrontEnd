@@ -1,0 +1,57 @@
+
+input[type=text], input[type=email], input[type=tel]{
+    width: calc(100% - 15px);
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.containerBtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    
+}
+
+.btnForm{
+    margin: 10px;
+    border-radius: 15px;
+    height: 25px;
+    width: 100px;
+    background-color: white;
+    font-size: 16px;
+    box-shadow: 0.1em 0.1em 0.3em black;
+}
+.btnForm:hover{
+    color: white;
+    background-color: black;
+    box-shadow: 0.1em 0.1em 0.3em black;
+}
+
+.btn{
+    margin: 10px;
+    border-radius: 15px;
+    height: 25px;
+    width: 200px;
+    background-color: white;
+    font-size: 16px;
+    box-shadow: 0.1em 0.1em 0.3em black;
+}
+
+.btn:hover{
+    color: white;
+    background-color: black;
+    box-shadow: 0.1em 0.1em 0.3em black;
+}
+
+table{
+    border-collapse: collapse;
+    width: calc(100% - 50px);
+    margin: 10px;
+}
+
+table, td, th{
+    border: 1px solid;
+    text-align: center;
+
+}
