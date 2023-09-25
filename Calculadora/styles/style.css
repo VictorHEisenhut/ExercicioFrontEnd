@@ -1,7 +1,5 @@
 .containerBtn{
-    display: flex;
-    justify-content: center;
-    margin-top: 5px;
+    text-align: center;
 }
 
 .btn{
@@ -16,21 +14,20 @@
 
 .btn:hover{
     border-radius: 15px;
-    height: 30px;
-    width: 80px;
     color: white;
     background-color: black;
     font-size: 18px;
-    box-shadow: 0.1em 0.1em 0.3em rgba(37,76,11,255);
+    box-shadow: 0.1em 0.1em 0.3em red;
 }
 input[type=text], input[type=number]{
+    text-align: right;
+    font-size: 25px;
     width: calc(100% - 15px);
+    border-radius: 10px;
     margin-bottom: 10px;
     padding: 5px;
 }
 
-body{
-}
 
 form{
     display: flex;
@@ -42,7 +39,6 @@ form{
 .field{
     margin: 10px 0px 0px 0px;
     box-shadow: 0.1em 0.1em 0.2em black;
-
 }
 #result{
     margin: 20px;
@@ -51,4 +47,14 @@ form{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.opes{
+    background-color: black;
+    color: white;
+}
+
+#igual {
+    background-color: rgb(255, 10, 10);
+    color: white;
 }

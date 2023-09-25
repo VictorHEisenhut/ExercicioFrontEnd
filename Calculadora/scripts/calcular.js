@@ -1,40 +1,46 @@
+let n1 = 0;
+let n2 = 0;
+let op = "";
 
+function inserir(item){
+    document.getElementById("display").value += item.innerHTML
+    event.preventDefault();
+}
 
-function somar(){
+function definirOp(item) {
+    op = item.value;
+    console.log(op)
+    let display = document.getElementById("display")
+    n1 = parseFloat(display.value);
+    console.log(n1)
 
-    let x = parseFloat(document.getElementById("x").value)
-    let y = parseFloat(document.getElementById("y").value)
-
-    let result = x + y;
-    
-    document.getElementById("result").innerHTML = "O resultado é: " + result
-    
+    display.value = "";
+    event.preventDefault();
 
 }
 
-function subtrair(){
-    let x = parseFloat(document.getElementById("x").value)
-    let y = parseFloat(document.getElementById("y").value)
-    let result = x - y;
 
-    document.getElementById("result").innerHTML = "O resultado é: " + result
+function calc(){
+    let display = document.getElementById("display")
+    n2 = parseFloat(display.value);
+    console.log(n2)    
+    let result = 0
+    console.log(result)
 
-}
+    switch(op){
+        case "+": result = n1 + n2;
+        break;
+        
+        case "-": result = n1 - n2;
+        break;
 
-function multiplicar() {
-    let x = parseFloat(document.getElementById("x").value)
-    let y = parseFloat(document.getElementById("y").value)
-    let result = x * y;
+        case "×": result = n1 * n2;
+        break;
 
-    document.getElementById("result").innerHTML = "O resultado é: " + result
+        case "÷": result = n1 / n2;
+        break;
+    }
 
-}
-
-function dividir(){
-    let x = parseFloat(document.getElementById("x").value)
-    let y = parseFloat(document.getElementById("y").value)
-
-    let result = x / y;
-
-    document.getElementById("result").innerHTML = "O resultado é: " + result
+    display.value = result;
+    event.preventDefault();
 }

@@ -14,17 +14,39 @@
         <fieldset class="field">
             <legend>Calculadora</legend>
 
-            <label for="x">Valor X:</label>
-            <input type="number" id="x" placeholder="Insira o valor">
+            <input type="text" id="display">
 
-            <label for="y">Valor Y:</label>
-            <input type="number" id="y" placeholder="Insira o valor">
+            <div class="containerBtn">
+                <div>
+                    <button class="btn" onclick="inserir(this)">1</button>
+                    <button class="btn" onclick="inserir(this)">2</button>
+                    <button class="btn" onclick="inserir(this)">3</button>
+                </div>
+                <div>
+                    <button class="btn" onclick="inserir(this)">4</button>
+                    <button class="btn" onclick="inserir(this)">5</button>
+                    <button class="btn" onclick="inserir(this)">6</button>
+
+                </div>
+                <div>
+                    <button class="btn" onclick="inserir(this)">7</button>
+                    <button class="btn" onclick="inserir(this)">8</button>
+                    <button class="btn" onclick="inserir(this)">9</button>
+                </div>
+                <div>
+                    <button class="btn" onclick="inserir(this)">-</button>
+                    <button class="btn" onclick="inserir(this)">0</button>
+                    <button class="btn" onclick="inserir(this)">.</button>
+
+                </div>
+            </div>
             
             <div class="containerBtn">
-                <input type="button" class="btn" onclick="somar()" value="+" id="soma">
-                <input type="button" class="btn" onclick="subtrair()" value="-" id="subtracao">
-                <input type="button" class="btn" onclick="multiplicar()" value="×" id="multiplicacao">
-                <input type="button" class="btn" onclick="dividir()" value="÷" id="divisao">
+                <input type="button" class="btn opes" onclick="definirOp(this)" value="+" id="soma">
+                <input type="button" class="btn opes" onclick="definirOp(this)" value="-" id="subtracao">
+                <input type="button" class="btn opes" onclick="calc()" value="=" id="igual">
+                <input type="button" class="btn opes" onclick="definirOp(this)" value="×" id="multiplicacao">
+                <input type="button" class="btn opes" onclick="definirOp(this)" value="÷" id="divisao">
 
             </div>
 
