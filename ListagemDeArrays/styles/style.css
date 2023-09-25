@@ -1,0 +1,30 @@
+.forms{
+    width: calc(100% - 10px);
+    padding: 5px;
+}
+
+input[type=number], input[type=text]{
+    width: calc(100% - 15px);
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.containerBtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    
+}
+
+.btn{
+    margin: 10px 20px 0px 0px;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 15px;
+
+}
+.btn:hover{
+    background-color: black;
+    color: white;
+}
