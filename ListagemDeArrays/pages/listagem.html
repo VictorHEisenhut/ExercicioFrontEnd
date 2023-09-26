@@ -19,10 +19,64 @@
     
     <div class="containerBtn">
         <input class="btn" onclick="inserirNoArray()" type="button" value="Inserir">
-        <input class="btn" onclick="ordenar()" type="button" value="Listar">
+        <input class="btn" onclick="listarArray()" type="button" value="Listar">
+        <input class="btn" onclick="ordenarCrescente()" type="button" value="Crescente">
+        <input class="btn" onclick="ordenarDecrescente()" type="button" value="Decrescente">
+        
     </div>
-    <ul>
-    </ul>
+    <div class="list">
+        <ul></ul>
+    </div>
+
+    <hr>
+
+    <form action="" method="get">
+        
+        <label for="numero">Pesquisar índice</label>
+        <div class="ind">
+            <input type="number" placeholder="Número" id="inputNumero">
+            <input type="text" placeholder="Índice" id="input" readonly>
+            
+        </div>
+        
+    </form>
     
+    <div class="containerBtn">
+        
+        <input class="btn" onclick="showIndex()" type="button" value="Pesquisar">
+
+    </div>
+
+    <hr>
+    
+    <form action="" method="get">
+        
+        <label for="numero">Digite o número a ser excluído</label>
+        <input type="number" placeholder="Número para excluir" id="inputExcluir">
+        
+    </form>
+    
+    <div class="containerBtn">
+        
+        <input class="btn" id="btnExcluir" onclick="excluir()" type="button" value="Excluir">
+
+    </div>
+
+    <hr>
+
+    <form action="" method="get">
+        
+        <label for="numero">Digite o número a ser editado</label>
+        <input type="number" placeholder="Número antigo" id="inputAntigo">
+        <input type="number" placeholder="Número novo" id="inputNovo">
+        
+    </form>
+    
+    <div class="containerBtn">
+        
+        <input class="btn" id="btnEditar" onclick="editar()" type="button" value="Editar">
+
+    </div>
+
 </body>
 </html>

@@ -4,9 +4,11 @@
 }
 
 input[type=number], input[type=text]{
-    width: calc(100% - 15px);
+    width: calc(100% - 25px);
     margin-bottom: 10px;
     padding: 5px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .containerBtn{
@@ -17,14 +19,59 @@ input[type=number], input[type=text]{
 }
 
 .btn{
-    margin: 10px 20px 0px 0px;
-    width: 200px;
+    margin: 5px 20px 15px 0px;
+    width: 150px;
     height: 30px;
     border-radius: 15px;
     font-size: 15px;
+    background-color:rgb(255, 255, 255);
 
 }
 .btn:hover{
     background-color: black;
     color: white;
+}
+
+.ind{
+    display: flex;
+}
+#inputNumero{
+    margin-right: 20px;
+}
+
+.list{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+
+}
+ul{
+    display: block;
+    text-align: center;
+}
+li{
+    list-style: none;
+    margin-left: -50px;
+}
+
+form{
+    
+    margin-top: 15px;
+}
+
+#btnEditar{
+    background-color: blue;
+}
+
+#btnExcluir{
+    background-color: red;
+}
+
+label{
+    font-size: 15px;
+}
+body{
+    background-color: whitesmoke;
 }
