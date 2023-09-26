@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+
+
+    <script>
+
+        var pessoa = {nome: "bruna", telefone: "(47)99280-4065", email:"bruna@gmail.com"}
+
+        console.log(pessoa);
+
+        var jsonPessoa = JSON.stringify(pessoa);
+        console.log(jsonPessoa);
+
+        var objPessoa = JSON.parse(jsonPessoa);
+        console.log(objPessoa);
+        console.log(objPessoa.nome );
+
+
+
+    </script>
+</body>
+</html>

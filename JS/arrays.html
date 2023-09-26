@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        var frutas = ["peito de peru", "pão"]
+        console.log(frutas);
+        console.log(frutas.length);
+
+        frutas.push("chocolate")
+        console.log(frutas);
+
+        frutas.unshift("mojito");
+        console.log(frutas);
+
+        // frutas.pop()
+        // console.log(frutas);
+
+        // frutas.shift()
+        // console.log(frutas);
+
+        frutas.push({nome: "jamal", idade: "69"})
+
+        frutas.splice(2, 1)
+        console.log(frutas);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interagindo com Arrays</title>
+</head>
+<body>
+
+    <div class="container">
+        <form action="" method="get">
+
+            <fieldset>
+                <legend>Item</legend>
+                <label for="item">Insira o item:</label>
+                <input type="text" name="item" id="item">
+
+            </fieldset>
+
+            <div class="containerBtn">
+
+                <input class="btn" type="button" onclick="gerarLista()" value="Cadastrar">
+            </div>
+        </form>
+    </div>
+    <ul></ul>
+
+    <script>        
+        
+        let itens = "";
+        function gerarLista(){
+            
+            const nomes = []
+            let temp = document.getElementById("item").value;
+            if (temp.length > 2 && !itens.includes(temp)) {
+                nomes.push(temp);
+    
+                for (let i = 0; i < nomes.length; i++) {
+    
+                    itens += `<li>${nomes[i]}</li>`
+    
+                }
+    
+                document.getElementsByTagName("ul")[0].innerHTML = itens;
+                
+            }
+            else{
+                alert("Insira um item válido")
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>
