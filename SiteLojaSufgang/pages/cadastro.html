@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/webp" href="../imgs/sufgangdesktop.webp">
+<script src="/script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header id="principal">
+        <a id="suf" href="https://www.sufgang.com.br" target="_blank">Sufgang</a>
+    </header>
+    <div class="container">
+        <div class="">
+
+        </div>
+
+        <div class="forms">
+            <form action="" method="get">
+                <fieldset class="field">
+                    <legend>Informações de login</legend>
+                    <label for="email">Informe email</label>
+                    <input type="email" placeholder="Informe email" id="email">
+    
+                    <label for="senha">Informe senha:</label>
+                    <input type="password" placeholder="Informe senha" id="senha">
+
+                    <label for="confirmação">Confirme senha:</label>
+                    <input type="password" placeholder="Confirme senha" id="confirmacao">
+
+                    <label for="cpf">Informe CPF:</label>
+                    <input type="text" placeholder="Informe CPF" id="cpf">
+
+                    <br>
+                    <label for="genero">Informe seu gênero:</label>
+                    <input type="radio" name="genero" id="genero_masculino" value="Masculino" >
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" name="genero" id="genero_feminino" value="Feminino" >
+                    <label for="feminino">Feminino</label>
+
+
+                </fieldset>
+                <div class="containerBtn">
+                    <input onclick="validaCadastro()" type="submit" class="botao" value="Cadastrar">
+                    <input type="reset" class="botao" value="Cancelar">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+#principal{
+    background-color: black;
+    height: 100px;
+    color: whitesmoke;
+}
+
+#secundario{
+    text-align: center;
+    word-spacing: 45px;
+    background-color: black;
+    height: 60px;
+}
+
+#suf{
+    display: block;
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    font-style: italic;
+}
+h1{
+    font-style: italic;
+    font-size: 35px;
+}
+p{
+    font-size: 17px;
+}
+.itens{
+    color: white;
+    font-size: 18px;
+}
+.itens:hover{
+    color: rgb(167, 163, 163);
+}
+
+.produtos{
+    text-align: center;
+}
+.tcamisa{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 10px 0px 0px 0px;
+    height: 10px;
+}
+.preco{
+    height: 15px;
+    margin: 10px 0px 0px 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#rodape {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+#rodape img {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    object-fit: scale-down;
+}
+ 
+.container{
+    display: flex;
+
+}
+
+div{
+    border: 1 px solid white;
+}
+
+.forms{
+    width: calc(100% - 10px);
+    padding: 5px;
+}
+
+input[type=password], input[type=email]{
+    width: calc(100% - 15px);
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.containerBtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    
+}
+
+.botao{
+    margin: 10px 20px 0px 0px;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 15px;
+
+}
+.botao:hover{
+    background-color: black;
+    color: white;
+}
+
+.field{
+    margin: 20px 0px 0px 0px;
+}
+
+#conteudo{
+    margin: 10px;
+}
+nav{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+    
+li{
+    display: inline;
+    margin: 5px;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.escondido{
+    display: none;
+    position: absolute;
+    background-color: black;
+    color: white;
+    margin-left: -5px;
+    width: 70px;
+}
+
+.dropdown:hover .escondido{
+    display: block;
+}
