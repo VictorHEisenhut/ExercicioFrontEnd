@@ -9,20 +9,28 @@
     <title>Produtos</title>
 </head>
 <body>
-    <div class="d-flex justify-content-center m-2">
+    <div class="m-2">
         <form action="" method="get">
 
             <legend>Informações dos produtos</legend>
 
+                <div class="form-floating mb-2">
 
-                <label for="nome">Insira a descrição:</label>
-                <input class="form-control-2" type="text" id="desc" placeholder="Descrição">
+                    <input class="form-control " type="text" required id="desc" placeholder="Descrição">
+                    <label for="floatingInputValue">Insira a descrição:</label>
+                </div>
 
-                <label for="nome">Insira o valor:</label>
-                <input class="form-control-2" type="number"  id="valor" placeholder="Valor">
+                <div class="form-floating mb-2">
 
-                <label for="nome">Insira as unidades:</label>
-                <input class="form-control-2" type="number"  id="units" placeholder="Unidades">
+                    <input class="form-control" type="number" min="0" id="valor" placeholder="Valor">
+                    <label for="floatingInputValue">Insira o valor:</label>
+                </div>
+
+                <div class="form-floating mb-2">
+                    <input class="form-control" type="number" min="0" id="units" placeholder="Unidades">
+                    <label for="floatingInputValue">Insira as unidades:</label>
+
+                </div>
 
 
             <div class="mt-3">
@@ -50,6 +58,10 @@
             <tr id="tr"></tr>
         </thead>
     </table>
+
+    <style id="style">
+       
+    </style>
 
 </body>
 </html>

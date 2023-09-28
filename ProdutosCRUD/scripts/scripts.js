@@ -9,8 +9,40 @@ function gerarTabela(){
         valor: document.getElementById("valor").value, 
         unidades: document.getElementById("units").value
     };
+    
+    for (let index = 0; index < dados.length; index++) {
+        if(dados[index].descricao == produto.descricao){
+            document.getElementById("desc").focus()
+            document.getElementById("desc").classList.add("is-invalid")
+            return;
+        }
+    }
+    if (produto.descricao == "") {
+        document.getElementById("desc").classList.add("is-invalid")
+        return;
+    }
+    else{
+        document.getElementById("desc").classList.remove("is-invalid")
+    }
 
-    if(produto){}
+    if (produto.valor == "") {
+        document.getElementById("valor").classList.add("is-invalid")
+        return;
+    }
+    else{
+        document.getElementById("valor").classList.remove("is-invalid")
+    }
+
+    if(produto.unidades == ""){
+        document.getElementById("units").classList.add("is-invalid")
+        return
+    }
+    else{
+        document.getElementById("units").classList.remove("is-invalid")
+    }
+
+    
+    
     dados.push(produto);
 
     listarTabela();
