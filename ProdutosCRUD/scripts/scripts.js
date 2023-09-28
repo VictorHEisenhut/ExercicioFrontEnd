@@ -20,10 +20,12 @@ function gerarTabela(){
 function listarTabela(){
             
     let itens = "";
+    let total = ""
     for (let i = 0; i < dados.length; i++) {
         
         itens += `
         <tr>
+            <td>${i + 1}</td>
             <td>${dados[i].descricao}</td>
             <td>${dados[i].valor}</td>
             <td>${dados[i].unidades}</td>
@@ -33,7 +35,23 @@ function listarTabela(){
             `
             
     }
-    
+    let somaValor = 0;
+    let somaUnits = 0
+    for (let i = 0; i < dados.length; i++) {
+
+        somaValor += parseInt(dados[i].valor);
+        somaUnits += parseInt(dados[i].unidades);
+    }
+
+    total = `
+        <th scope="col">TOTAL</th>
+        <th>${dados.length}</th>
+        <th>${somaValor}</th>
+        <th>${somaUnits}</th>
+        <th></th>
+        <th></th>
+     `
+    document.getElementById("tr").innerHTML = total;
     document.getElementsByTagName("tbody")[0].innerHTML = itens;
 }
 
