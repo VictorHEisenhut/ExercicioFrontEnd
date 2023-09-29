@@ -73,8 +73,8 @@ function listarTabela(){
     let somaUnits = 0
     for (let i = 0; i < dados.length; i++) {
 
-        somaValor += parseInt(dados[i].valor);
-        somaUnits += parseInt(dados[i].unidades);
+        somaValor += parseFloat(dados[i].valor);
+        somaUnits += parseFloat(dados[i].unidades);
     }
     total = `
         <th scope="col">TOTAL</th>
