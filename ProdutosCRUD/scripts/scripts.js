@@ -53,6 +53,7 @@ function listarTabela(){
             
     let itens = "";
     let total = ""
+    let subtotal = 0;
     for (let i = 0; i < dados.length; i++) {
         
         itens += `
@@ -61,11 +62,12 @@ function listarTabela(){
             <td>${dados[i].descricao}</td>
             <td>${dados[i].valor}</td>
             <td>${dados[i].unidades}</td>
+            <td>${dados[i].valor * dados[i].unidades}</td>
             <td><button class="btn btn-danger" onclick=excluir('${i}')>Excluir</button></td>
             <td><button class="btn btn-success" onclick=editar("${i}")>Editar</button></td>
             </tr>
             `
-            
+            subtotal += dados[i].valor * dados[i].unidades;
     }
     let somaValor = 0;
     let somaUnits = 0
@@ -74,12 +76,12 @@ function listarTabela(){
         somaValor += parseInt(dados[i].valor);
         somaUnits += parseInt(dados[i].unidades);
     }
-
     total = `
         <th scope="col">TOTAL</th>
         <th>${dados.length}</th>
         <th>${somaValor}</th>
         <th>${somaUnits}</th>
+        <th>${subtotal}</th>
         <th></th>
         <th></th>
      `
