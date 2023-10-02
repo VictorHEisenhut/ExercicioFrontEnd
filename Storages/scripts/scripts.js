@@ -17,43 +17,44 @@ function cadastrarUsuario(){
 }
 
 function cadastrarMaisUsuarios(){
-    var users = [localStorage.getItem('user')]
-            if(users != ""){
+    let usuarios = []
 
-                users = JSON.parse(users)
-                let newUser = {
-                    nome: document.getElementById("nome").value,
-                    email: document.getElementById("email").value,
-                    senha: document.getElementById("senha").value
-                }
-                users.push(newUser)
+            if(localStorage.getItem('usuarios')){
+               usuarios = JSON.parse(localStorage.getItem('usuarios'))    
             }
-            else{
+                   
+            let inputNome = document.getElementsByTagName('input')[0]
 
+            let inputUser = document.getElementsByTagName('input')[1]
 
-                let newUser = {
-                    nome: document.getElementById("nome").value,
-                    email: document.getElementById("email").value,
-                    senha: document.getElementById("senha").value
-                }
-                users.push(newUser)
-            }
+            let inputSenha = document.getElementsByTagName('input')[2]
 
-        localStorage.setItem('user', JSON.stringify(users))
-        
+            let obj = { username: inputUser.value, senha: inputSenha.value }
+
+            usuarios.push(obj)
+
+            localStorage.setItem('usuarios',JSON.stringify(usuarios))
 }
 
 function logarUsuario(){
 
-    var user = JSON.parse(localStorage.getItem('user'))
+    let inputUser = document.getElementsByTagName('input')[0]
 
-    let emailV = document.getElementById("emailLogin").value;
-    let senhaV = document.getElementById("senhaLogin").value;
+            let inputSenha = document.getElementsByTagName('input')[1]
 
-    if(user[0].email == emailV && user[0].senha == senhaV ){
-         alert("Login com sucesso")
-         window.location.href("/pages/index.html")
-    }
+            if(localStorage.getItem('usuarios')){
+              let usuarios = JSON.parse(localStorage.getItem('usuarios')) 
+               for(let i = 0; i < usuarios.length; i++){
+                   if(inputUser.value == usuarios[i].username && inputSenha.value == usuarios[i].senha){
+                    localStorage.setItem('userLogado',JSON.stringify(usuarios[i]))
+                    return
+                }
+               } 
+               alert('Usuario ou senha incorreto')  
+            }
+            else{
+                alert('Tabela de usuarios não encontrada')
+            }   
 
 }
 
@@ -62,6 +63,6 @@ function logout(){
 
     var user = JSON.parse(localStorage.getItem('user'))
 
-    localStorage.removeItem('user', user)
+    localStorage.removeItem('userLogado', user)
 }
 
