@@ -22,6 +22,7 @@ function cadastrarMaisUsuarios(){
             if(localStorage.getItem('usuarios')){
                usuarios = JSON.parse(localStorage.getItem('usuarios'))    
             }
+
                    
             let inputNome = document.getElementsByTagName('input')[0]
 
@@ -31,7 +32,16 @@ function cadastrarMaisUsuarios(){
 
             let obj = { username: inputUser.value, senha: inputSenha.value }
 
-            usuarios.push(obj)
+            let user = usuarios.find((user) => user.username == inputUser.value)
+            if(user == null){
+                usuarios.push(obj)
+                document.getElementsByTagName('input')[1].classList.remove("is-invalid")
+            }
+            else{
+                document.getElementsByTagName('input')[1].classList.add("is-invalid")
+                alert("Usuário já existe")
+            }
+
 
             localStorage.setItem('usuarios',JSON.stringify(usuarios))
 }
@@ -43,18 +53,32 @@ function logarUsuario(){
             let inputSenha = document.getElementsByTagName('input')[1]
 
             if(localStorage.getItem('usuarios')){
-              let usuarios = JSON.parse(localStorage.getItem('usuarios')) 
-               for(let i = 0; i < usuarios.length; i++){
-                   if(inputUser.value == usuarios[i].username && inputSenha.value == usuarios[i].senha){
-                    localStorage.setItem('userLogado',JSON.stringify(usuarios[i]))
-                    return
+                let usuarios = JSON.parse(localStorage.getItem('usuarios')) 
+                console.log(usuarios)
+                let user = usuarios.find((user) => user.username == inputUser.value && user.senha == inputSenha.value)
+                if(user != null){
+                    localStorage.setItem('userLogado',JSON.stringify(user))
                 }
-               } 
-               alert('Usuario ou senha incorreto')  
+                else{
+                    alert('Usuário ou senha incorreto')
+                }
             }
             else{
-                alert('Tabela de usuarios não encontrada')
-            }   
+                    alert('Tabela de usuarios não encontrada')
+                } 
+            // if(localStorage.getItem('usuarios')){
+            //   let usuarios = JSON.parse(localStorage.getItem('usuarios')) 
+            //    for(let i = 0; i < usuarios.length; i++){
+            //         if(inputUser.value == usuarios[i].username && inputSenha.value == usuarios[i].senha){
+            //         localStorage.setItem('userLogado',JSON.stringify(usuarios[i]))
+            //         return
+            //     }
+            //    } 
+            //    alert('Usuario ou senha incorreto')  
+            // }
+            // else{
+            //     alert('Tabela de usuarios não encontrada')
+            // }   
 
 }
 
