@@ -92,11 +92,25 @@ ALTER TABLE tb_vendas_realizadas ADD CONSTRAINT fk_vendas_realizadas FOREIGN KEY
 
 /* Criando fk para tabelas n para n */
 
-ALTER TABLE tb_produtos_tb_vendas_realizadas ADD COLUMN tb_formas_pagamento_p_id int; 
-ALTER TABLE tb_pagar ADD CONSTRAINT fk_formas_pagamento_p FOREIGN KEY(tb_formas_pagamento_id) REFERENCES tb_formas_pagamento(id);
+ALTER TABLE tb_produtos_tb_vendas_realizadas ADD COLUMN tb_produtos_id int; 
+ALTER TABLE tb_produtos_tb_vendas_realizadas ADD CONSTRAINT fk_produtos FOREIGN KEY(tb_produtos_id) REFERENCES tb_produtos(id);
 
-ALTER TABLE tb_pagar ADD COLUMN tb_formas_pagamento_p_id int; 
-ALTER TABLE tb_pagar ADD CONSTRAINT fk_formas_pagamento_p FOREIGN KEY(tb_formas_pagamento_id) REFERENCES tb_formas_pagamento(id);
+ALTER TABLE tb_produtos_tb_vendas_realizadas ADD COLUMN tb_vendas_realizadas_id int; 
+ALTER TABLE tb_produtos_tb_vendas_realizadas ADD CONSTRAINT fk_vendas_realizadas_p FOREIGN KEY(tb_vendas_realizadas_id) REFERENCES tb_vendas_realizadas(id);
+
+
+ALTER TABLE tb_produtos_tb_fornecedores ADD COLUMN tb_produtos_f_id int; 
+ALTER TABLE tb_produtos_tb_fornecedores ADD CONSTRAINT fk_produtos_f FOREIGN KEY(tb_produtos_f_id) REFERENCES tb_produtos(id);
+
+ALTER TABLE tb_produtos_tb_fornecedores ADD COLUMN tb_fornecedores_p_id int; 
+ALTER TABLE tb_produtos_tb_fornecedores ADD CONSTRAINT fk_fornecedores_p FOREIGN KEY(tb_fornecedores_p_id) REFERENCES tb_fornecedores(id);
+
+
+ALTER TABLE tb_produtos_tb_compras_efetuadas ADD COLUMN tb_compras_efetuadas_id int; 
+ALTER TABLE tb_produtos_tb_compras_efetuadas ADD CONSTRAINT fk_compras_efetuadas_p FOREIGN KEY(tb_compras_efetuadas_id) REFERENCES tb_compras_efetuadas(id);
+
+ALTER TABLE tb_produtos_tb_compras_efetuadas ADD COLUMN tb_produtos_c_id int; 
+ALTER TABLE tb_produtos_tb_compras_efetuadas ADD CONSTRAINT fk_produtos_c FOREIGN KEY(tb_produtos_c_id) REFERENCES tb_produtos(id);
 
 /* Inserir dados */
 
