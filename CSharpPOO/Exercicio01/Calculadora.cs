@@ -8,24 +8,82 @@ namespace Exercicio01
 {
     internal class Calculadora
     {
-        public double Somar(double x, double y)
-        {
-            return x + y;
+        private double x;
+        private double y;
+
+        public double X { 
+            get
+            {
+                return x;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    x = value;
+                    
+                }
+                else
+                {
+                    Console.WriteLine($"Número deve ser maior que 0");
+                }
+            }
+        }
+        public double Y {
+            get
+            {
+                return y;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    y = value;
+                }
+                else
+                {
+                    Console.WriteLine("Número deve ser maior que 0");
+                }
+            }
         }
 
-        public double Subtrair(double x, double y)
+        public Calculadora(double x, double y)
         {
-            return x - y;
+            X= x;
+            Y= y;
+            Somar();
+            Subtrair();
+            Dividir();
+            Multiplicar();
         }
 
-        public double Dividir(double x, double y)
+        public double Somar()
         {
-            return x / y;
+            var soma = this.x + this.y;
+            Console.WriteLine(soma);
+            return soma;
+        
         }
 
-        public double Multiplicar(double x, in double y)
+        public double Subtrair()
         {
-            return x * y;
+            var sub = this.x - this.y;
+            Console.WriteLine(sub);
+            return sub;
+        }
+
+        public double Dividir()
+        {
+            var divisao = this.x / this.y;
+            Console.WriteLine(divisao);
+            return divisao;
+        }
+
+        public double Multiplicar()
+        {
+            var mult = this.x * this.y;
+            Console.WriteLine(mult);
+            return mult;
         }
 
     }

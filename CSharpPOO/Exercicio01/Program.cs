@@ -47,15 +47,16 @@ namespace Exercicio01
             Console.WriteLine("Digite a cor do carro");
             var cor = Console.ReadLine();
 
-            Carro car = new()
-            {
-                Placa = placa,
-                Marca = marca,
-                Modelo = modelo,
-                Cor = cor
-            };
+            Carro car = new(placa, marca, modelo, cor);
 
-            Console.Clear();
+            //Carro car = new()
+            //{
+            //    Placa = placa,
+            //    Marca = marca,
+            //    Modelo = modelo,
+            //    Cor = cor
+            //};
+
             Console.WriteLine(car);
         }
 
@@ -66,22 +67,17 @@ namespace Exercicio01
             Console.WriteLine("Escreva o 2º número:");
             var y = Convert.ToDouble(Console.ReadLine());
 
-            Calculadora calc = new();
-
-            Console.WriteLine(calc.Somar(x, y));
-            Console.WriteLine(calc.Subtrair(x, y));
-            Console.WriteLine(calc.Multiplicar(x, y));
-            Console.WriteLine(calc.Dividir(x, y));
+            Calculadora calc = new(x, y);
         }
         
         static void Exercicio03()
         {
-            Retangulo retangulo = new();
             
             Console.WriteLine("Digite a base do retângulo:");
-            retangulo.Base = Convert.ToInt32(Console.ReadLine());
+            var bases = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Digite a altura do retângulo");
-            retangulo.Altura = Convert.ToInt32(Console.ReadLine());
+            var altura = Convert.ToInt32(Console.ReadLine());
+            Retangulo retangulo = new(bases, altura);
 
             Console.WriteLine($"Área: {retangulo.Area()}");
             Console.WriteLine($"Perímetro: {retangulo.Perimetro()}");
@@ -91,19 +87,21 @@ namespace Exercicio01
 
         static void Exercicio04()
         {
-            Produtos produto = new();
             Console.WriteLine("Digite o código do produto:");
-            produto.Codigo = Convert.ToInt32(Console.ReadLine());
+            var codigo = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Digite a descrição do produto:");
-            produto.Descricao = Console.ReadLine();
+            var descricao = Console.ReadLine();
             Console.WriteLine("Digite o estoque do produto:");
-            produto.Estoque = Convert.ToInt32(Console.ReadLine());
+            var estoque = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Digite o valor do produto:");
-            produto.valorUnit = Convert.ToDouble(Console.ReadLine());
+            var valorUnit = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Digite 1 para aplicar DESCONTO ou 2 para ACRÉSCIMO");
             var opcao = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Digite a porcentagem:");
-            produto.Porcentagem = Convert.ToDouble(Console.ReadLine());
+            var porcentagem= Convert.ToDouble(Console.ReadLine());
+
+            Produtos produto = new(codigo, descricao, estoque, valorUnit, porcentagem);
+            
             Console.Clear();
             if (opcao == 1)
             {

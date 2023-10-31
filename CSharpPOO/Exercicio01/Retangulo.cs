@@ -8,8 +8,48 @@ namespace Exercicio01
 {
     internal class Retangulo
     {
-        public int Base { get; set; }
-        public int Altura { get; set; }
+        private int bases;
+        private int altura;
+        public int Base { 
+            get
+            {
+                return bases;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    bases = value;
+                }
+                else
+                {
+                    Console.WriteLine("Base inválida!");
+                }
+            }
+        }
+        public int Altura { 
+            get
+            {
+                return altura;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    altura = value;
+                }
+                else
+                {
+                    Console.WriteLine("Altura inválida!");
+                }
+            }
+        }
+
+        public Retangulo(int bases, int altura)
+        {
+            Base = bases;
+            Altura = altura;
+        }
 
         public int Area()
         {
