@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CRUD_Produtos_Carros/1.0.0": {
+        "runtime": {
+          "CRUD_Produtos_Carros.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CRUD_Produtos_Carros/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

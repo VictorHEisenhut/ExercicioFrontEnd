@@ -1,0 +1,15 @@
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\CRUD_Produtos_Carros.csproj.AssemblyReference.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\CRUD_Produtos_Carros.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\CRUD_Produtos_Carros.AssemblyInfoInputs.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\CRUD_Produtos_Carros.AssemblyInfo.cs
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\CRUD_Produtos_Carros.csproj.CoreCompileInputs.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\bin\Debug\net6.0\CRUD_Produtos_Carros.exe
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\bin\Debug\net6.0\CRUD_Produtos_Carros.deps.json
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\bin\Debug\net6.0\CRUD_Produtos_Carros.runtimeconfig.json
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\bin\Debug\net6.0\CRUD_Produtos_Carros.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\bin\Debug\net6.0\CRUD_Produtos_Carros.pdb
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\CRUD_Produtos_Carros.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\refint\CRUD_Produtos_Carros.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\CRUD_Produtos_Carros.pdb
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\CRUD_Produtos_Carros.genruntimeconfig.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\CRUD_Produtos_Carros\obj\Debug\net6.0\ref\CRUD_Produtos_Carros.dll
