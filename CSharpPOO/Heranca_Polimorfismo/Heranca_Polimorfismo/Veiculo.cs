@@ -10,14 +10,14 @@ namespace Heranca_Polimorfismo
     internal class Veiculo
     {
         public string Marca { get; set; }
-        public string VelocidadeMax { get; set; }
+        public int VelocidadeMax { get; set; }
         public string Modelo { get; set; }
 
         public Veiculo()
         {
             
         }
-        public Veiculo(string marca, string velocidadeMax, string modelo)
+        public Veiculo(string marca, int velocidadeMax, string modelo)
         {
             VelocidadeMax = velocidadeMax; 
             Modelo = modelo;
@@ -26,7 +26,7 @@ namespace Heranca_Polimorfismo
 
         public string ToString()
         {
-            return $"Marca: {Marca}\n Modelo: {Modelo}\n Velocidade Máxima: {VelocidadeMax}";
+            return $"Marca: {Marca}\n Modelo: {Modelo}\n Velocidade Máxima: {VelocidadeMax} km/h";
         }
 
     }

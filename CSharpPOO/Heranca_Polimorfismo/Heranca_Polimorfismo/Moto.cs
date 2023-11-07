@@ -11,7 +11,7 @@ namespace Heranca_Polimorfismo
         public int Cilindrada { get; set; }
 
         public Moto() { }
-        public Moto(int cilindrada, string marca, string velocidadeMax, string modelo):base(marca, velocidadeMax, modelo)
+        public Moto(int cilindrada, string marca, int velocidadeMax, string modelo):base(marca, velocidadeMax, modelo)
         {
             Cilindrada = cilindrada;
         }

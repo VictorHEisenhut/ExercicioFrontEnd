@@ -19,7 +19,7 @@
                 Modelo = "1000RR",
                 Equipe = "RedBull",
                 Cilindrada = 1000,
-                VelocidadeMax = "300 km/h"
+                VelocidadeMax = 300
             };
             Console.WriteLine(motoComp.ToString());
 
@@ -28,7 +28,7 @@
                 Marca = "Honda",
                 Modelo = "Biz",
                 Cilindrada = 245,
-                VelocidadeMax = "150 km/h",
+                VelocidadeMax = 150,
                 Bau = true
             };
             Console.WriteLine(motoPasseio.ToString());

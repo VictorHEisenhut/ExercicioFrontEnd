@@ -14,7 +14,7 @@ namespace Heranca_Polimorfismo
         {
             
         }
-        public MotoCompeticao(int cilindrada, string equipe, string marca, string velocidadeMax, string modelo):base(cilindrada, marca, velocidadeMax, modelo)
+        public MotoCompeticao(int cilindrada, string equipe, string marca, int velocidadeMax, string modelo):base(cilindrada, marca, velocidadeMax, modelo)
         {
             Equipe = equipe;
         }

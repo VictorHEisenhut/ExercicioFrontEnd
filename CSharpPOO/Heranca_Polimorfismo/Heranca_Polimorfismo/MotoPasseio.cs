@@ -14,7 +14,7 @@ namespace Heranca_Polimorfismo
         {
             
         }
-        public MotoPasseio(int cilindrada, bool bau, string marca, string velocidadeMax, string modelo) :base(cilindrada, marca, velocidadeMax, modelo)
+        public MotoPasseio(int cilindrada, bool bau, string marca, int velocidadeMax, string modelo) :base(cilindrada, marca, velocidadeMax, modelo)
         {
             Bau = bau;
         }
