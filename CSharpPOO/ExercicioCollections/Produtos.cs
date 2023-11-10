@@ -41,10 +41,12 @@ namespace ExercicioCollections
                     if (!produtos[i].Descricao.Equals(produto.Descricao))
                     {
                         produtos.Add(produto);
+                        break;
                     }
                     else
                     {
                         Console.WriteLine("Produto já existente");
+                        break;
                     }
                 }
 
@@ -64,6 +66,23 @@ namespace ExercicioCollections
             }
         }
 
+        public static void RemoveProdutos(List<Produtos> produtos)
+        {
+            LerProdutos(produtos);
+            Console.WriteLine("Digite a descrição do produto");
+            var desc = Console.ReadLine();
+
+            for (int i = 0; i < produtos.Count; i++)
+            {
+                if (produtos[i].Descricao.Equals(desc))
+                {
+                    produtos.Remove(produtos[i]);
+                    Console.WriteLine("Produto removido!");
+                    break;
+                }
+                else { Console.WriteLine("Produto não encontrado!"); break; }
+            }
+        }
 
         public override string ToString()
         {

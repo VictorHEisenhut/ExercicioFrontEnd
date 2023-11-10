@@ -9,20 +9,42 @@ namespace ExercicioCollections
 
         static void Main(string[] args)
         {
+            string condicao = "";
 
-            string condicao = "SIM";
-            while (condicao == "SIM")
+            while (condicao != "SIM")
             {
-                
+                Console.Clear();
+                Console.WriteLine(
+                    "------MENU------\n" +
+                    "|[1] Adicionar  |\n" +
+                    "|[2] Ler        |\n" +
+                    "|[3] Remover    |");
 
-                Produtos.AdicionarProdutos(produtos);
-                Produtos.LerProdutos(produtos);
+                try
+                {
+                    var opcao = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Digite SIM para continuar a execução");
+                    switch (opcao)
+                    {
+                        case 1:
+                            Produtos.AdicionarProdutos(produtos);
+                            break;
+                        case 2:
+                            Produtos.LerProdutos(produtos);
+                            break;
+                        case 3:
+                            Produtos.RemoveProdutos(produtos);
+                            break;
+
+                    }
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+                Console.WriteLine("Deseja encerrar o programa? (sim) (pressione qualquer tecla)");
                 condicao = Console.ReadLine().ToUpper();
             }
-            //ExercicioPessoa();
-
         }
 
         public static void ExercicioPessoa()
