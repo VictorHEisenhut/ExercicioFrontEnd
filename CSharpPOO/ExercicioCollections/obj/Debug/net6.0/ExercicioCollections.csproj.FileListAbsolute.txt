@@ -1,0 +1,15 @@
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\bin\Debug\net6.0\ExercicioCollections.exe
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\bin\Debug\net6.0\ExercicioCollections.deps.json
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\bin\Debug\net6.0\ExercicioCollections.runtimeconfig.json
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\bin\Debug\net6.0\ExercicioCollections.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\bin\Debug\net6.0\ExercicioCollections.pdb
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\ExercicioCollections.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\ExercicioCollections.AssemblyInfoInputs.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\ExercicioCollections.AssemblyInfo.cs
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\ExercicioCollections.csproj.CoreCompileInputs.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\ExercicioCollections.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\refint\ExercicioCollections.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\ExercicioCollections.pdb
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\ExercicioCollections.genruntimeconfig.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\ref\ExercicioCollections.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ExercicioCollections\obj\Debug\net6.0\ExercicioCollections.csproj.AssemblyReference.cache

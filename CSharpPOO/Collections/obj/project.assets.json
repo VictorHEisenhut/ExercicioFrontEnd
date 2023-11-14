@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\victor.eisenhut\\Projects\\CSharpPOO\\CRUD_Produtos_Carros\\CRUD_Produtos_Carros.csproj",
-      "projectName": "CRUD_Produtos_Carros",
-      "projectPath": "C:\\Users\\victor.eisenhut\\Projects\\CSharpPOO\\CRUD_Produtos_Carros\\CRUD_Produtos_Carros.csproj",
+      "projectUniqueName": "C:\\Users\\victor.eisenhut\\Projects\\CSharpPOO\\Collections\\Collections.csproj",
+      "projectName": "Collections",
+      "projectPath": "C:\\Users\\victor.eisenhut\\Projects\\CSharpPOO\\Collections\\Collections.csproj",
       "packagesPath": "C:\\Users\\victor.eisenhut\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\victor.eisenhut\\Projects\\CSharpPOO\\CRUD_Produtos_Carros\\obj\\",
+      "outputPath": "C:\\Users\\victor.eisenhut\\Projects\\CSharpPOO\\Collections\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\victor.eisenhut\\AppData\\Roaming\\NuGet\\NuGet.Config",
