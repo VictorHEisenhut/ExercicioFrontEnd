@@ -8,5 +8,16 @@ namespace Solid
 {
     internal class GerenciaPersistenciaFatura
     {
+        private IPersistenciaDaFatura persistenciaDaFatura;
+
+        public GerenciaPersistenciaFatura(IPersistenciaDaFatura persistenciaDaFatura)
+        {
+            this.persistenciaDaFatura = persistenciaDaFatura;
+        }
+
+        public void Executar(Fatura fatura)
+        {
+            persistenciaDaFatura.Salvar(fatura);
+        }
     }
 }

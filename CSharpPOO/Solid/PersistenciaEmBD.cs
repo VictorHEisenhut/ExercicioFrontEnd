@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Solid
 {
-    internal class PersistenciaEmBD
+    internal class PersistenciaEmBD : IPersistenciaDaFatura
     {
+        public void Salvar(Fatura fatura)
+        {
+            Console.WriteLine("Salvo em DB");
+        }
     }
 }

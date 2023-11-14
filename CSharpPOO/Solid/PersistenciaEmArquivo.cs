@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Solid
 {
-    internal class PersistenciaEmArquivo
+    internal class PersistenciaEmArquivo : IPersistenciaDaFatura
     {
+        public void Salvar(Fatura fatura)
+        {
+            Console.WriteLine("Salvo em arquivo");
+        }
     }
 }

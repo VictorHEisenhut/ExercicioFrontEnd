@@ -8,5 +8,6 @@ namespace Solid
 {
     internal interface IPersistenciaDaFatura
     {
+        public void Salvar(Fatura fatura);
     }
 }

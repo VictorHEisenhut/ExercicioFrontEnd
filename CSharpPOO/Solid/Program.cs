@@ -4,7 +4,18 @@
     {
         static void Main(string[] args)
         {
-            SingleResponsability();
+            //SingleResponsability();
+            liskov();
+        }
+
+        static void liskov()
+        {
+            GerenciaPersistenciaFatura gp1 = new(new PersistenciaEmArquivo());
+            gp1.Executar(new Fatura());
+
+            GerenciaPersistenciaFatura gp2 = new(new PersistenciaEmBD());
+            gp2.Executar(new Fatura());
+        
         }
 
         static void SingleResponsability()
