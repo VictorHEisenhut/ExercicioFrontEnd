@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exercicio01
+﻿namespace Exercicio01
 {
     internal class Carro
     {
@@ -13,12 +6,13 @@ namespace Exercicio01
         private string marca;
         private string modelo;
         private string cor;
-        public string Placa {
+        public string Placa
+        {
             get
             {
                 return placa;
-            } 
-            set 
+            }
+            set
             {
                 if (value.Length < 7)
                 {
@@ -26,16 +20,17 @@ namespace Exercicio01
                 }
                 else
                 {
-                    placa = value;                    
+                    placa = value;
                 }
-            } 
+            }
         }
-        public string Marca { 
-            get 
+        public string Marca
+        {
+            get
             {
                 return marca;
-            } 
-            set 
+            }
+            set
             {
                 if (value.Length < 3)
                 {
@@ -47,7 +42,8 @@ namespace Exercicio01
                 }
             }
         }
-        public string Modelo { 
+        public string Modelo
+        {
             get
             {
                 return modelo;
@@ -64,11 +60,12 @@ namespace Exercicio01
                 }
             }
         }
-        public string Cor{ 
+        public string Cor
+        {
             get
             {
                 return cor;
-            } 
+            }
             set
             {
                 if (value.Length < 4)
@@ -81,13 +78,13 @@ namespace Exercicio01
                 }
             }
         }
-        
+
         public Carro()
         {
 
         }
 
-        public Carro(string placa, string marca, string modelo, string cor) 
+        public Carro(string placa, string marca, string modelo, string cor)
         {
             Placa = placa;
             Marca = marca;

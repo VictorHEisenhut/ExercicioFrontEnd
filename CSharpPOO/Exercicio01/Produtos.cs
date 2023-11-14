@@ -1,10 +1,4 @@
-﻿    using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exercicio01
+﻿namespace Exercicio01
 {
     internal class Produtos
     {
@@ -12,10 +6,11 @@ namespace Exercicio01
         private string descricao;
         private int estoque;
         private double valorUnit;
-        private double porcentagem;    
+        private double porcentagem;
 
-        public int Codigo {
-            get { return codigo; } 
+        public int Codigo
+        {
+            get { return codigo; }
             set
             {
                 if (value > 0)
@@ -28,12 +23,13 @@ namespace Exercicio01
                 }
             }
         }
-        public string Descricao { 
-            get 
+        public string Descricao
+        {
+            get
             {
                 return descricao;
-            } 
-            set 
+            }
+            set
             {
                 if (value.Length < 4)
                 {
@@ -45,7 +41,8 @@ namespace Exercicio01
                 }
             }
         }
-        public int Estoque { 
+        public int Estoque
+        {
             get
             {
                 return estoque;
@@ -62,7 +59,8 @@ namespace Exercicio01
                 }
             }
         }
-        public double ValorUnit { 
+        public double ValorUnit
+        {
             get
             {
                 return valorUnit;
@@ -79,7 +77,8 @@ namespace Exercicio01
                 }
             }
         }
-        public double Porcentagem {
+        public double Porcentagem
+        {
             get
             {
                 return porcentagem;
