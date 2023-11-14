@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExercicioCollections
 {
-    internal class Categoria
+    internal class Categoria: IComparable<Categoria>
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -50,14 +50,22 @@ namespace ExercicioCollections
 
         public static Categoria GetCategoriaById(SortedList<int, Categoria> list, int id)
         {
-            for (int i = 1; i <= list.Count; i++)
+            try
             {
-                if (list[i].Id == id)
+                for (int i = 1; i <= list.Count; i++)
                 {
-                    return list[i];
+                    if (list[i].Id == id)
+                    {
+                        return list[i];
+                    }
                 }
+                Console.WriteLine("Categoria não encontrada");
+
             }
-            Console.WriteLine("Categoria não encontrada");
+            catch(Exception ex) { 
+               Console.WriteLine(ex.Message);
+             }
+                       
             return null;
         }
 
@@ -66,5 +74,11 @@ namespace ExercicioCollections
             return $"ID: {Id} - Nome: {Nome}";
         }
 
+        //Falta implementação do IComparable
+
+        public int CompareTo(Categoria? other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
