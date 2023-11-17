@@ -1,0 +1,15 @@
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\bin\Debug\net6.0\ArquivosProduto.exe
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\bin\Debug\net6.0\ArquivosProduto.deps.json
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\bin\Debug\net6.0\ArquivosProduto.runtimeconfig.json
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\bin\Debug\net6.0\ArquivosProduto.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\bin\Debug\net6.0\ArquivosProduto.pdb
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\ArquivosProduto.csproj.AssemblyReference.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\ArquivosProduto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\ArquivosProduto.AssemblyInfoInputs.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\ArquivosProduto.AssemblyInfo.cs
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\ArquivosProduto.csproj.CoreCompileInputs.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\ArquivosProduto.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\refint\ArquivosProduto.dll
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\ArquivosProduto.pdb
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\ArquivosProduto.genruntimeconfig.cache
+C:\Users\victor.eisenhut\Projects\CSharpPOO\ArquivosProduto\obj\Debug\net6.0\ref\ArquivosProduto.dll
