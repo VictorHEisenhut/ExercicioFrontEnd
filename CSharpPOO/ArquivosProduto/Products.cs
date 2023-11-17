@@ -155,14 +155,12 @@ namespace ArquivosProduto
             {
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine($"Produtos:\n");
-
                 }
             }
         }
         public static void WriteInFile(List<Products> products)
         {
-            using (StreamWriter sw = File.AppendText(path))
+            using (StreamWriter sw = File.CreateText(path))
             {
                 foreach (var produto in products)
                 {
@@ -172,18 +170,49 @@ namespace ArquivosProduto
             }
 
         }
-        public static void ReadInFile()
+        public static void ReadInFile(List<Products> products)
         {
+            products.Clear();
             using (StreamReader sr = File.OpenText(path))
             {
                 string s;
+                int linha = 1;
+                int codigo = 0;
+                string descricao = "";
+                int estoque = 0;
+                double valor = 0;
+
                 while ((s = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine(s);
+                    if (linha == 1)
+                    {
+                        int posI = s.IndexOf("|");
+                        codigo = Convert.ToInt32(s.Substring(0, posI));
+
+                        s = s.Remove(0, posI + 2);
+                        posI = s.IndexOf("|");
+                        descricao = s.Substring(0, posI);
+
+                        s = s.Remove(0, posI + 2);
+                        posI = s.IndexOf("|");
+                        estoque = Convert.ToInt32(s.Substring(0, posI));
+
+                        s = s.Remove(0, posI + 2);
+                        posI = s.IndexOf("|");
+                        valor = Convert.ToDouble(s.Substring(0, s.Length));
+
+                        products.Add(new Products { Codigo = codigo, Descricao = descricao, Estoque = estoque, ValorUnit = valor });
+
+                    }
+
+                }
+                foreach (var item in products)
+                {
+                    Console.WriteLine(item);
                 }
             }
         }
-     
+
 
         public static void ReadProducts(List<Products> products)
         {
@@ -195,7 +224,6 @@ namespace ArquivosProduto
 
         public static void UpdateProducts(List<Products> products)
         {
-            //ReadPlacas(cars);
             Console.WriteLine("Digite o código do produto a ser editado:");
             var cod = Convert.ToInt32(Console.ReadLine());
 
@@ -216,6 +244,8 @@ namespace ArquivosProduto
                         var valor = Convert.ToDouble(Console.ReadLine());
 
                         products[i] = new Products() { Codigo = products[i].Codigo, Descricao = desc, Estoque = estoque, ValorUnit = valor };
+
+                        WriteInFile(products);
                     }
                 }
 
@@ -228,7 +258,6 @@ namespace ArquivosProduto
 
         public static void DeleteProducts(List<Products> products)
         {
-            //ReadPlacas(cars);
             Console.WriteLine("Digite o código do produto a ser excluído:");
             var cod = Convert.ToInt32(Console.ReadLine());
 
@@ -240,16 +269,13 @@ namespace ArquivosProduto
                     Console.WriteLine("Produto removido!");
                 }
             }
-        }
+            WriteInFile(products);
+        }   
 
 
         public override string ToString()
         {
-            return $"\nInformações do produto:\n" +
-                $"Codigo: {this.Codigo}\n" +
-                $"Descrição: {this.Descricao}\n" +
-                $"Estoque: {this.Estoque}\n" +
-                $"Valor unitário: {this.ValorUnit}";
+            return $"{Codigo} | {Descricao} | {Estoque} | {ValorUnit}";
         }
 
     }

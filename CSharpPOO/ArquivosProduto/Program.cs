@@ -31,7 +31,7 @@
                             Products.ReadProducts(products);
                             break;
                         case 3:
-                            Products.ReadInFile();
+                            Products.ReadInFile(products);
                             break;
                         case 4:
                             Products.UpdateProducts(products);
