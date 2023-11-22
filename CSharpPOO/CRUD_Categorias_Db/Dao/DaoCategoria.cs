@@ -15,20 +15,28 @@ namespace CRUD_Categorias_Db.Dao
        // private static List<Categoria> categorias = new List<Categoria>();
         public bool Salvar(Categoria t)
         {
-            using (SqlConnection connection = new())
+            try
             {
-                connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\victor.eisenhut\Documents\categoriaDB.mdf;Integrated Security=True;Connect Timeout=30";
-                connection.Open();
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO tb_categorias([Descricao])VALUES(@Descricao)";
+                using (SqlConnection connection = new())
+                {
+                    connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\victor.eisenhut\Documents\categoriaDB.mdf;Integrated Security=True;Connect Timeout=30";
+                    connection.Open();
 
-                cmd.Parameters.Add("Descricao", SqlDbType.VarChar).Value = t.Descricao;
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO tb_categorias([Descricao])VALUES(@Descricao)";
 
-                cmd.Connection = connection;
-                return cmd.ExecuteNonQuery() > 0;
+                    cmd.Parameters.Add("Descricao", SqlDbType.VarChar).Value = t.Descricao;
 
+                    cmd.Connection = connection;
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Excessão capturada!");
+                return false;
             }
 
         }

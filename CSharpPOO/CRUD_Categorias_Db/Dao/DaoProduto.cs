@@ -15,25 +15,34 @@ namespace CRUD_Categorias_Db.Dao
     {
         public bool Salvar(Produto produto)
         {
-            using (SqlConnection connection = new())
+            try
             {
-                connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\victor.eisenhut\Documents\categoriaDB.mdf;Integrated Security=True;Connect Timeout=30";
-                connection.Open();
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO tb_produtos([Nome],[ValorUnit],[Estoque],[CategoriaID])VALUES(@Nome, @ValorUnit, @Estoque, @CategoriaID)";
+                using (SqlConnection connection = new())
+                {
+                    connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\victor.eisenhut\Documents\categoriaDB.mdf;Integrated Security=True;Connect Timeout=30";
+                    connection.Open();
 
-                cmd.Parameters.Add("Nome", SqlDbType.VarChar).Value = produto.Nome;
-                cmd.Parameters.Add("ValorUnit", SqlDbType.Decimal).Value = produto.ValorUnit;
-                cmd.Parameters.Add("Estoque", SqlDbType.Int).Value = produto.Estoque;
-                cmd.Parameters.Add("CategoriaID", SqlDbType.Int).Value = produto.Categoria.Id;
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO tb_produtos([Nome],[ValorUnit],[Estoque],[CategoriaID])VALUES(@Nome, @ValorUnit, @Estoque, @CategoriaID)";
 
-                cmd.Connection = connection;
-                return cmd.ExecuteNonQuery() > 0;
+                    cmd.Parameters.Add("Nome", SqlDbType.VarChar).Value = produto.Nome;
+                    cmd.Parameters.Add("ValorUnit", SqlDbType.Decimal).Value = produto.ValorUnit;
+                    cmd.Parameters.Add("Estoque", SqlDbType.Int).Value = produto.Estoque;
+                    cmd.Parameters.Add("CategoriaID", SqlDbType.Int).Value = produto.Categoria.Id;
+
+                    cmd.Connection = connection;
+                    return cmd.ExecuteNonQuery() > 0;
+                }
 
             }
-
+            catch (Exception)
+            {
+                Console.WriteLine("Excessão capturada");
+                return false;
+            }
+            
         }
 
         public List<Produto> GetItens()

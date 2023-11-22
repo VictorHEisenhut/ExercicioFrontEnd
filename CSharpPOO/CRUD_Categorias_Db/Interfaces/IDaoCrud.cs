@@ -14,6 +14,7 @@ namespace CRUD_Categorias_Db.Interfaces
         public T GetItemByID(int id);
         public bool Update(T t);
         public bool Delete(T t);
+        
 
     }
 }
