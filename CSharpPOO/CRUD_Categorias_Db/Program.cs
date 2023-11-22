@@ -19,7 +19,8 @@ namespace CriandoBD
                                   "[5] Criar produto\n" +
                                   "[6] Listar produtos\n" +
                                   "[7] Atualizar produto\n" +
-                                  "[8] Deletar produto");
+                                  "[8] Deletar produto\n" +
+                                  "[9] Listar produtos por categoria");
                 var opcao = Convert.ToInt32(Console.ReadLine());
                 switch (opcao)
                 {
@@ -46,6 +47,9 @@ namespace CriandoBD
                         break;
                     case 8:
                         DeleteProduto();
+                        break;
+                    case 9:
+                        GetProdutosByCategoria();
                         break;
                     default:
                         break;
@@ -200,6 +204,21 @@ namespace CriandoBD
                         Console.WriteLine("Produto deletada.");
                     }
                 }
+        }
+
+        static void GetProdutosByCategoria()
+        {
+            GetCategorias();
+
+            Console.WriteLine("\nDigite o id da categoria:");
+            var id = Convert.ToInt32(Console.ReadLine());
+
+            var produtos = DaoProduto.GetProdutoByCategoria(id);
+
+            foreach (var produto in produtos)
+            {
+                Console.WriteLine(produto);
+            }
         }
     }
 }

@@ -96,6 +96,38 @@ namespace CRUD_Categorias_Db.Dao
             }
         }
 
+        public static List<Produto> GetProdutoByCategoria(int categoriaId)
+        {
+            using (SqlConnection connection = new())
+            {
+                connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\victor.eisenhut\Documents\categoriaDB.mdf;Integrated Security=True;Connect Timeout=30";
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = $"SELECT * FROM tb_produtos WHERE CategoriaID = {categoriaId}";
+
+                cmd.Connection = connection;
+
+                SqlDataReader dr;
+                dr = cmd.ExecuteReader();
+                List<Produto> produtos = new List<Produto>();
+                while (dr.Read())
+                {
+                    Produto produto = new Produto();
+                    produto.Id = Convert.ToInt32(dr["Id"]);
+                    produto.Nome = Convert.ToString(dr["Nome"]);
+                    produto.ValorUnit = Convert.ToDouble(dr["ValorUnit"]);
+                    produto.Estoque = Convert.ToInt32(dr["Estoque"]);
+                    var catID = Convert.ToInt32(dr["CategoriaID"]);
+                    produto.Categoria = DaoCategoria.GetCategoriaByID(catID);
+
+                    produtos.Add(produto);
+                }
+                return produtos;
+            }
+        }
+
         public static bool Update(Produto produto, Produto newProduto)
         {
             using (SqlConnection connection = new())
