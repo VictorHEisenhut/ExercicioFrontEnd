@@ -1,4 +1,5 @@
 ﻿using CRUD_Categorias_Db.Entidades;
+using CRUD_Categorias_Db.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace CRUD_Categorias_Db.Dao
 {
-    internal class DaoCategoria
+    internal class DaoCategoria : IDaoCrud<Categoria>
     {
        // private static List<Categoria> categorias = new List<Categoria>();
-        public static bool Salvar(Categoria categoria)
+        public bool Salvar(Categoria t)
         {
             using (SqlConnection connection = new())
             {
@@ -23,7 +24,7 @@ namespace CRUD_Categorias_Db.Dao
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "INSERT INTO tb_categorias([Descricao])VALUES(@Descricao)";
 
-                cmd.Parameters.Add("Descricao", SqlDbType.VarChar).Value = categoria.Descricao;
+                cmd.Parameters.Add("Descricao", SqlDbType.VarChar).Value = t.Descricao;
 
                 cmd.Connection = connection;
                 return cmd.ExecuteNonQuery() > 0;
@@ -32,7 +33,7 @@ namespace CRUD_Categorias_Db.Dao
 
         }
 
-        public static List<Categoria> GetCategorias()
+        public List<Categoria> GetItens()
         {
             using (SqlConnection connection = new())
             {
@@ -60,7 +61,7 @@ namespace CRUD_Categorias_Db.Dao
             }
         }
 
-        public static Categoria GetCategoriaByID(int id)
+        public Categoria GetItemByID(int id)
         {
             using (SqlConnection connection = new())
             {
@@ -87,7 +88,7 @@ namespace CRUD_Categorias_Db.Dao
             }
         }
 
-        public static bool Update(Categoria categoria, Categoria newCategoria)
+        public bool Update(Categoria t)
         {
             using (SqlConnection connection = new())
             {
@@ -96,7 +97,10 @@ namespace CRUD_Categorias_Db.Dao
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = $"UPDATE tb_categorias SET Descricao = '{newCategoria.Descricao}' WHERE Id = '{categoria.Id}'";
+                cmd.CommandText = $"UPDATE tb_categorias SET Descricao = @Descricao WHERE Id = @ID";
+                cmd.Parameters.Add("Descricao", SqlDbType.VarChar).Value = t.Descricao;
+                cmd.Parameters.Add("ID", SqlDbType.Int).Value = t.Id;
+
                 cmd.Connection = connection;
                 return cmd.ExecuteNonQuery() > 0;
 
@@ -104,18 +108,26 @@ namespace CRUD_Categorias_Db.Dao
 
         }
 
-        public static bool Delete(Categoria categoria)
+        public bool Delete(Categoria t)
         {
             using (SqlConnection connection = new())
             {
-                connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\victor.eisenhut\Documents\categoriaDB.mdf;Integrated Security=True;Connect Timeout=30";
-                connection.Open();
+                try
+                {
+                    connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\victor.eisenhut\Documents\categoriaDB.mdf;Integrated Security=True;Connect Timeout=30";
+                    connection.Open();
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = $"DELETE FROM tb_categorias WHERE Id='{categoria.Id}'";
-                cmd.Connection = connection;
-                return cmd.ExecuteNonQuery() > 0;
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = $"DELETE FROM tb_categorias WHERE Id='{t.Id}'";
+                    cmd.Connection = connection;
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+                catch (SqlException)
+                {
+                    Console.WriteLine("Categoria já está atribuída a um produto!");
+                    return false;
+                }
 
             }
         }

@@ -22,6 +22,7 @@ namespace CriandoBD
                                   "[8] Deletar produto\n" +
                                   "[9] Listar produtos por categoria");
                 var opcao = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
                 switch (opcao)
                 {
                     case 1:
@@ -69,7 +70,7 @@ namespace CriandoBD
             Console.WriteLine("Digite a descrição do produto:");
             categoria.Descricao = Console.ReadLine();
 
-            if (DaoCategoria.Salvar(categoria))
+            if (new DaoCategoria().Salvar(categoria))
             {
                 Console.WriteLine("Categoria salva!");
             }
@@ -77,7 +78,7 @@ namespace CriandoBD
 
         static void GetCategorias()
         {
-            var categorias = DaoCategoria.GetCategorias();
+            var categorias = new DaoCategoria().GetItens();
 
             foreach (var categoria in categorias)
             {
@@ -87,31 +88,27 @@ namespace CriandoBD
 
         static void UpdateCategoria()
         {
-            var categorias = DaoCategoria.GetCategorias();
+            DaoCategoria daoCategoria = new DaoCategoria();
 
             Console.WriteLine("Digite o ID da categoria a ser atualizada:");
             var id = Convert.ToInt32(Console.ReadLine());
+            var categoria = daoCategoria.GetItemByID(id);
 
-            for (int i = 0; i < categorias.Count; i++)
-            {
-                if (id == categorias[i].Id)
-                {
-                    Console.Clear();
-                    Console.WriteLine(categorias[i]);
-                    Console.WriteLine("\nDigite a nova descrição:");
-                    var newDesc = Console.ReadLine();
-                    DaoCategoria.Update(categorias[i], new Categoria(newDesc));
-                    break;
-                }
-            }
+
+            Console.Clear();
+            Console.WriteLine(categoria);
+            Console.WriteLine("\nDigite a nova descrição:");
+            categoria.Descricao = Console.ReadLine();
+            daoCategoria.Update(categoria);
         }
 
         static void DeleteCategoria()
         {
+            DaoCategoria daoCategoria = new();
 
             Console.WriteLine("Digite o ID da categoria que deseja excluir:");
             var id = Convert.ToInt32(Console.ReadLine());
-            var categoria = DaoCategoria.GetCategoriaByID(id);
+            var categoria = daoCategoria.GetItemByID(id);
 
             if (id == categoria.Id)
             {
@@ -121,8 +118,15 @@ namespace CriandoBD
                 var r = Console.ReadLine();
                 if (r.ToUpper() == "SIM")
                 {
-                    DaoCategoria.Delete(categoria);
-                    Console.WriteLine("Categoria deletada.");
+                    if (daoCategoria.Delete(categoria))
+                    {
+                        Console.WriteLine("Categoria deletada.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Erro ao deletar!");
+                    }
+                    
                 }
             }
         }
@@ -140,12 +144,14 @@ namespace CriandoBD
             Console.WriteLine("Digite a estoque do produto:");
             produto.Estoque = Convert.ToInt32(Console.ReadLine());
 
+            GetCategorias();
+            
             Console.WriteLine("Digite o ID da categoria do produto:");
             var id = Convert.ToInt32(Console.ReadLine());
-            var categoria = DaoCategoria.GetCategoriaByID(id);
+            var categoria = new DaoCategoria().GetItemByID(id);
             produto.Categoria = categoria;
 
-            if (DaoProduto.Salvar(produto))
+            if (new DaoProduto().Salvar(produto))
             {
                 Console.WriteLine("Produto salvo!");
             }
@@ -153,7 +159,7 @@ namespace CriandoBD
 
         static void GetProdutos()
         {
-            var produtos = DaoProduto.GetProdutos();
+            var produtos = new DaoProduto().GetItens();
 
             foreach (var produto in produtos)
             {
@@ -163,47 +169,49 @@ namespace CriandoBD
 
         static void UpdateProduto()
         {
+            DaoProduto daoProduto = new();
 
             Console.WriteLine("Digite o ID do produto a ser atualizado:");
             var id = Convert.ToInt32(Console.ReadLine());
-            var produto = DaoProduto.GetProdutoByID(id);
+            var produto = daoProduto.GetItemByID(id);
 
             if (id == produto.Id)
             {
                 Console.Clear();
                 Console.WriteLine(produto);
                 Console.WriteLine("\nDigite o novo nome:");
-                var newName = Console.ReadLine();
+                produto.Nome = Console.ReadLine();
                 Console.WriteLine("Digite o novo valor:");
-                var newValue = Convert.ToDouble(Console.ReadLine());
+                produto.ValorUnit = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Digite o novo estoque:");
-                var newEstoque = Convert.ToInt32(Console.ReadLine());
+                produto.Estoque = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Digite o novo ID de categoria:");
-                var newCatID = Convert.ToInt32(Console.ReadLine());
-                DaoProduto.Update(produto, new Produto(newName, newValue, newEstoque, DaoCategoria.GetCategoriaByID(newCatID)));
+                produto.Categoria = new DaoCategoria().GetItemByID(Convert.ToInt32(Console.ReadLine()));
+                daoProduto.Update(produto);
             }
         }
 
         static void DeleteProduto()
         {
+            DaoProduto daoProduto = new();
 
             Console.WriteLine("Digite o ID da categoria que deseja excluir:");
             var id = Convert.ToInt32(Console.ReadLine());
-            var produto = DaoProduto.GetProdutoByID(id);
+            var produto = daoProduto.GetItemByID(id);
 
 
-                if (id == produto.Id)
+            if (id == produto.Id)
+            {
+                Console.Clear();
+                Console.WriteLine(produto);
+                Console.WriteLine("Tem certeza que seja excluir permanentemente esta categoria?(SIM)");
+                var r = Console.ReadLine();
+                if (r.ToUpper() == "SIM")
                 {
-                    Console.Clear();
-                    Console.WriteLine(produto);
-                    Console.WriteLine("Tem certeza que seja excluir permanentemente esta categoria?(SIM)");
-                    var r = Console.ReadLine();
-                    if (r.ToUpper() == "SIM")
-                    {
-                        DaoProduto.Delete(produto);
-                        Console.WriteLine("Produto deletada.");
-                    }
+                    daoProduto.Delete(produto);
+                    Console.WriteLine("Produto deletada.");
                 }
+            }
         }
 
         static void GetProdutosByCategoria()
@@ -213,7 +221,7 @@ namespace CriandoBD
             Console.WriteLine("\nDigite o id da categoria:");
             var id = Convert.ToInt32(Console.ReadLine());
 
-            var produtos = DaoProduto.GetProdutoByCategoria(id);
+            var produtos = new DaoProduto().GetProdutoByCategoria(id);
 
             foreach (var produto in produtos)
             {

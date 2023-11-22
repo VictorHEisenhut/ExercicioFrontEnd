@@ -23,8 +23,7 @@ namespace CRUD_Categorias_Db.Entidades
 
         public override string ToString()
         {
-            return $"ID: {Id}\n" +
-                $"Descrição: {Descricao}";
+            return $"ID: {Id} - Descrição: {Descricao}";
         }
     }
 }

@@ -6,12 +6,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CRUD_Categorias_Db.Interfaces;
+using System.Runtime.InteropServices;
 
 namespace CRUD_Categorias_Db.Dao
 {
-    internal class DaoProduto
+    internal class DaoProduto : IDaoCrud<Produto>
     {
-        public static bool Salvar(Produto produto)
+        public bool Salvar(Produto produto)
         {
             using (SqlConnection connection = new())
             {
@@ -34,7 +36,7 @@ namespace CRUD_Categorias_Db.Dao
 
         }
 
-        public static List<Produto> GetProdutos()
+        public List<Produto> GetItens()
         {
             using (SqlConnection connection = new())
             {
@@ -58,14 +60,14 @@ namespace CRUD_Categorias_Db.Dao
                     produto.ValorUnit = Convert.ToDouble(dr["ValorUnit"]);
                     produto.Estoque = Convert.ToInt32(dr["Estoque"]);
                     var catID = Convert.ToInt32(dr["CategoriaID"]);
-                    produto.Categoria = DaoCategoria.GetCategoriaByID(catID);
+                    produto.Categoria = new DaoCategoria().GetItemByID(catID);
 
                     produtos.Add(produto);
                 }
                 return produtos;
             }
         }
-        public static Produto GetProdutoByID(int id)
+        public Produto GetItemByID(int id)
         {
             using (SqlConnection connection = new())
             {
@@ -88,7 +90,7 @@ namespace CRUD_Categorias_Db.Dao
                     produto.ValorUnit = Convert.ToDouble(dr["ValorUnit"]);
                     produto.Estoque = Convert.ToInt32(dr["Estoque"]);
                     var catID = Convert.ToInt32(dr["CategoriaID"]);
-                    produto.Categoria = DaoCategoria.GetCategoriaByID(catID);
+                    produto.Categoria = new DaoCategoria().GetItemByID(catID);
 
                     return produto;
                 }
@@ -96,7 +98,7 @@ namespace CRUD_Categorias_Db.Dao
             }
         }
 
-        public static List<Produto> GetProdutoByCategoria(int categoriaId)
+        public List<Produto> GetProdutoByCategoria(int categoriaId)
         {
             using (SqlConnection connection = new())
             {
@@ -120,7 +122,7 @@ namespace CRUD_Categorias_Db.Dao
                     produto.ValorUnit = Convert.ToDouble(dr["ValorUnit"]);
                     produto.Estoque = Convert.ToInt32(dr["Estoque"]);
                     var catID = Convert.ToInt32(dr["CategoriaID"]);
-                    produto.Categoria = DaoCategoria.GetCategoriaByID(catID);
+                    produto.Categoria = new DaoCategoria().GetItemByID(catID);
 
                     produtos.Add(produto);
                 }
@@ -128,7 +130,7 @@ namespace CRUD_Categorias_Db.Dao
             }
         }
 
-        public static bool Update(Produto produto, Produto newProduto)
+        public bool Update(Produto produto)
         {
             using (SqlConnection connection = new())
             {
@@ -137,15 +139,22 @@ namespace CRUD_Categorias_Db.Dao
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = $"UPDATE tb_produtos SET Nome = '{newProduto.Nome}', ValorUnit = '{newProduto.ValorUnit}', Estoque = '{newProduto.Estoque}', CategoriaID = '{newProduto.Categoria.Id}' WHERE Id = '{produto.Id}'";
+                cmd.CommandText = $"UPDATE tb_produtos SET Nome = @Nome, ValorUnit = @ValorUnit, Estoque = @Estoque, CategoriaID = @CategoriaID WHERE Id = @Id";
+               
+                cmd.Parameters.Add("Nome", SqlDbType.VarChar).Value = produto.Nome;
+                cmd.Parameters.Add("ValorUnit", SqlDbType.Decimal).Value = produto.ValorUnit;
+                cmd.Parameters.Add("Estoque", SqlDbType.Int).Value = produto.Estoque;
+                cmd.Parameters.Add("CategoriaID", SqlDbType.Int).Value = produto.Categoria.Id;
+                cmd.Parameters.Add("Id", SqlDbType.Int).Value = produto.Id;
                 cmd.Connection = connection;
-                return cmd.ExecuteNonQuery() > 0;
 
+                cmd.ExecuteNonQuery();
+                return true;
             }
 
         }
 
-        public static bool Delete(Produto produto)
+        public bool Delete(Produto produto)
         {
             using (SqlConnection connection = new())
             {
