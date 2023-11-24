@@ -22,7 +22,7 @@ namespace CriandoBD.Dao
             this.con = con;
         }
 
-        public static List<Contato> contatos = new List<Contato>();
+        public List<Contato> contatos = new List<Contato>();
         public  bool Salvar(Contato contato)
         {
             using (con)
@@ -81,11 +81,11 @@ namespace CriandoBD.Dao
 
         public Contato ConsultarPorId(int id)
         {
-            using (MySqlConnection connection = Connect.Conectar())
+            using (con)
             {
-                MySqlCommand command = connection.CreateCommand();
+                MySqlCommand command = con.CreateCommand();
 
-                connection.Open();
+                con.Open();
 
                 command.CommandType = CommandType.Text;
                 command.CommandText = "SELECT * FROM tb_contatos WHERE id = @id";
@@ -105,7 +105,7 @@ namespace CriandoBD.Dao
                 reader.Close();
                 command.ExecuteNonQuery();
 
-                command.Connection = connection;
+                command.Connection = con;
                 return ctt;
 
             }
@@ -114,11 +114,11 @@ namespace CriandoBD.Dao
 
         public bool Atualizar(Contato contato)
         {
-            using (MySqlConnection connection = Connect.Conectar())
+            using (con)
             {
-                MySqlCommand command = connection.CreateCommand();
+                MySqlCommand command = con.CreateCommand();
 
-                connection.Open();
+                con.Open();
 
                 command.CommandType = CommandType.Text;
                 command.CommandText = "UPDATE tb_contatos SET nome = @nome, email = @email, celular = @celular WHERE id = @Id";
@@ -129,7 +129,7 @@ namespace CriandoBD.Dao
 
                 command.ExecuteNonQuery();
 
-                command.Connection = connection;
+                command.Connection = con;
                 return true;
 
             }
@@ -138,11 +138,11 @@ namespace CriandoBD.Dao
 
         public bool Deletar(Contato contato)
         {
-            using (MySqlConnection connection = Connect.Conectar())
+            using (con)
             {
-                MySqlCommand command = connection.CreateCommand();
+                MySqlCommand command = con.CreateCommand();
 
-                connection.Open();
+                con.Open();
 
                 command.CommandType = CommandType.Text;
                 command.CommandText = "DELETE FROM tb_contatos WHERE id = @id";
@@ -150,7 +150,7 @@ namespace CriandoBD.Dao
 
                 command.ExecuteNonQuery();
 
-                command.Connection = connection;
+                command.Connection = con;
                 return command.ExecuteNonQuery() > 0;
 
             }
