@@ -1,0 +1,45 @@
+﻿@model ProjetoMVC.Models.Contato
+@{
+    ViewData["Title"] = "Primeiro Contato";
+}
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+        </tr>
+
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Email)
+            </td>
+        </tr>
+
+
+    </table>
+
+</div>
+<style>
+    th{
+        font-weight: bold;
+    }
+    td{
+        color: red;
+    }
+</style>
