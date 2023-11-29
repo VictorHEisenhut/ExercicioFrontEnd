@@ -137,7 +137,7 @@ namespace ProjetoMVC.Controllers
         }
 
         // POST: Produtos/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]    
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
