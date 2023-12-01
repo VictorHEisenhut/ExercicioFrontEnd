@@ -1,4 +1,5 @@
-﻿using AgendaMVC.Data;
+﻿using AgendaMVC.Dao;
+using AgendaMVC.Data;
 using AgendaMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,8 +28,12 @@ namespace AgendaMVC.Controllers
         [HttpPost]
         public IActionResult Create(Contato contato)
         {
-            contato.Id = Db.contatos.Count + 1;
-            Db.contatos.Add(contato);
+            //contato.Id = Db.contatos.Count + 1;
+            //Db.contatos.Add(contato);
+            ContatoDao dao = new();
+
+            dao.Salvar(contato);
+
             return RedirectToAction("Index");
         }
 
