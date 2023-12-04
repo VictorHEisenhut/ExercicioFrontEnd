@@ -2,6 +2,10 @@
 {
     public interface ICrud<T>
     {
-        public bool Salvar(T t);
+        bool Salvar(T t);
+        List<T> Consultar();
+        T Consultar(int id);
+        bool Alterar(T t);
+        bool Deletar(T t);
     }
 }

@@ -1,12 +1,15 @@
 ﻿using AgendaMVC.Dao;
 using AgendaMVC.Data;
 using AgendaMVC.Models;
+using AgendaMVC.Utilities;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 
 namespace AgendaMVC.Controllers
 {
     public class ContatoController : Controller
     {
+        private ContatoDao dao = new(Connect.Conectar());
         public IActionResult Index()
         {
             //contatos.Add(new Contato
@@ -16,7 +19,7 @@ namespace AgendaMVC.Controllers
             //    Email = "jamal@gmail.com",
             //    Fone = "47992750273"
             //});
-            return View(Db.contatos); 
+            return View(dao.Consultar()); 
         }
 
         [HttpGet]
@@ -30,7 +33,7 @@ namespace AgendaMVC.Controllers
         {
             //contato.Id = Db.contatos.Count + 1;
             //Db.contatos.Add(contato);
-            ContatoDao dao = new();
+            //ContatoDao dao = new(Connect.Conectar());
 
             dao.Salvar(contato);
 
@@ -38,45 +41,46 @@ namespace AgendaMVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            Contato ctt = Db.contatos.FirstOrDefault(contato => contato.Id == id);
+            Contato ctt = dao.Consultar(id);
             return View(ctt);
         }
 
         [HttpPost]
         public IActionResult Edit(Contato ctt)
         {
-            Contato contato = Db.contatos.FirstOrDefault(contato => contato.Id == ctt.Id);
+            Contato contato = dao.Consultar(ctt.Id);
             contato.Nome = ctt.Nome;
             contato.Email = ctt.Email;
             contato.Fone = ctt.Fone;
+            dao.Alterar(contato);
             
             return RedirectToAction("Index");
 
         }
 
         [HttpGet]
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            Contato contato = Db.contatos.FirstOrDefault(contato => contato.Id == id);
+            Contato contato = dao.Consultar(id);
             return View(contato);
         }
 
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            Contato contato = Db.contatos.FirstOrDefault(contato => contato.Id == id);
+            Contato contato = dao.Consultar(id);
 
             return View(contato);
         }
         [HttpPost]
         public IActionResult DeleteConfirmed(int id)
         {
-            Contato contato = Db.contatos.FirstOrDefault(contato => contato.Id == id);
+            Contato contato = dao.Consultar(id);
 
             if (contato != null)
             {
-                Db.contatos.Remove(contato);
+                dao.Deletar(contato);
             }
             return RedirectToAction("Index");
         }

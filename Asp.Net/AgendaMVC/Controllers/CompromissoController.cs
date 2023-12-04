@@ -1,5 +1,7 @@
-﻿using AgendaMVC.Data;
+﻿using AgendaMVC.Dao;
+using AgendaMVC.Data;
 using AgendaMVC.Models;
+using AgendaMVC.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,9 +10,10 @@ namespace AgendaMVC.Controllers
 {
     public class CompromissoController : Controller
     {
+        private CompromissoDao dao = new(Connect.Conectar());
         public IActionResult Index()
         {
-            return View(Db.compromissos);
+            return View(dao.Consultar());
         }
 
         [HttpGet]
@@ -18,53 +21,55 @@ namespace AgendaMVC.Controllers
         {
 
             List<SelectListItem> Contatos = new();
-            Contatos = Db.contatos.Select(c => new SelectListItem() { Text = c.Nome, Value = c.Id.ToString() }).ToList();
+            Contatos = new ContatoDao(Connect.Conectar()).Consultar().Select(c => new SelectListItem() { Text = c.Nome, Value = c.Id.ToString() }).ToList();
             ViewBag.Contatos = Contatos;
             return View();
         }
         [HttpPost]
         public IActionResult Create(Compromisso compromisso)
         {
-            compromisso.Id = Db.compromissos.Count + 1;
-            compromisso.Contato = Db.contatos.FirstOrDefault(id => id.Id == compromisso.Id);
-            Db.compromissos.Add(compromisso);
+            //compromisso.Id = Db.compromissos.Count + 1;
+            //compromisso.Contato = Db.contatos.FirstOrDefault(id => id.Id == compromisso.Id);
+            //Db.compromissos.Add(compromisso);
+            dao.Salvar(compromisso);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            Compromisso compromisso = Db.compromissos.FirstOrDefault(c => c.Id == id);
+            Compromisso compromisso = dao.Consultar(id);
             return View(compromisso);
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id)
         {
             List<SelectListItem> Contatos = new();
-            Contatos = Db.contatos.Select(c => new SelectListItem() { Text = c.Nome, Value = c.Id.ToString() }).ToList();
+            Contatos = new ContatoDao(Connect.Conectar()).Consultar().Select(c => new SelectListItem() { Text = c.Nome, Value = c.Id.ToString() }).ToList();
             ViewBag.Contatos = Contatos;
 
-            Compromisso compromisso = Db.compromissos.FirstOrDefault(c => c.Id == id);
+            Compromisso compromisso = dao.Consultar(id);
             return View(compromisso);
         }
 
         [HttpPost]
         public IActionResult Edit(Compromisso compromisso)
         {
-            Compromisso compromissoNovo = Db.compromissos.FirstOrDefault(c => c.Id == compromisso.Id);
+            Compromisso compromissoNovo = dao.Consultar(compromisso.Id);
             compromissoNovo.Descricao = compromisso.Descricao;
             compromissoNovo.Data = compromisso.Data;
-            Contato ctt = Db.contatos.FirstOrDefault(c => c.Id == compromisso.Contato.Id);
+            Contato ctt = new ContatoDao(Connect.Conectar()).Consultar(compromisso.Contato.Id);
             compromissoNovo.Contato = ctt;
+            dao.Alterar(compromissoNovo);
             
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            Compromisso compromisso = Db.compromissos.FirstOrDefault(c => c.Id == id);
+            Compromisso compromisso = dao.Consultar(id);
 
             return View(compromisso);
         }
@@ -72,11 +77,11 @@ namespace AgendaMVC.Controllers
         [HttpPost]
         public IActionResult DeleteConfirmed(Compromisso compromisso)
         {
-            var comp = Db.compromissos.FirstOrDefault(c => c.Id == compromisso.Id);
+            var comp = dao.Consultar(compromisso.Id);
 
             if (comp != null)
             {
-                Db.compromissos.Remove(comp);
+                dao.Deletar(compromisso);
             }
 
             return RedirectToAction("Index");
