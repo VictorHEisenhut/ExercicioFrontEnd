@@ -1,5 +1,4 @@
 ﻿using AgendaMVC.Dao;
-using AgendaMVC.Data;
 using AgendaMVC.Models;
 using AgendaMVC.Utilities;
 using Microsoft.AspNetCore.Mvc;

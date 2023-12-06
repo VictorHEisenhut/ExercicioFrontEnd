@@ -1,6 +1,8 @@
-﻿using AgendaMVC.Interfaces;
+﻿using AgendaMVC.Controllers;
+using AgendaMVC.Interfaces;
 using AgendaMVC.Models;
 using AgendaMVC.Utilities;
+using AgendaMVC.Validations;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -32,9 +34,17 @@ namespace AgendaMVC.Dao
                 command.Parameters.Add("Nome", SqlDbType.VarChar).Value = contato.Nome;
                 command.Parameters.Add("Email", SqlDbType.VarChar).Value = contato.Email;
                 command.Parameters.Add("Fone", SqlDbType.VarChar).Value = contato.Fone;
-                command.ExecuteNonQuery();
 
-                return true;
+                if (ContatoValidator.ValidarContato(contato))
+                {
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
         }
         public bool Alterar(Contato contato)

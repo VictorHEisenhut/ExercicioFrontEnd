@@ -1,5 +1,4 @@
 ﻿using AgendaMVC.Dao;
-using AgendaMVC.Data;
 using AgendaMVC.Models;
 using AgendaMVC.Utilities;
 using Microsoft.AspNetCore.Mvc;
@@ -36,8 +35,8 @@ namespace AgendaMVC.Controllers
             //ContatoDao dao = new(Connect.Conectar());
 
             dao.Salvar(contato);
-
             return RedirectToAction("Index");
+            
         }
 
         [HttpGet]
