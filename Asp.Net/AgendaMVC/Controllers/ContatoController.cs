@@ -9,16 +9,23 @@ namespace AgendaMVC.Controllers
     public class ContatoController : Controller
     {
         private ContatoDao dao = new(Connect.Conectar());
-        public IActionResult Index()
+        public IActionResult Index(string sortOrder)
         {
-            //contatos.Add(new Contato
-            //{
-            //    Id = 1,
-            //    Nome = "Jamal",
-            //    Email = "jamal@gmail.com",
-            //    Fone = "47992750273"
-            //});
-            return View(dao.Consultar()); 
+            ViewBag.nomeSortParam = String.IsNullOrEmpty(sortOrder) ? "nome_desc" : "";
+
+            var contatos = from c in dao.Consultar() select c;
+
+            switch (sortOrder)
+            {
+                case "nome_desc":
+                    contatos = contatos.OrderByDescending(c => c.Nome);
+                    break;
+                default:
+                    contatos = contatos.OrderBy(c => c.Nome);
+                    break;
+            }
+
+            return View(contatos); 
         }
 
         [HttpGet]

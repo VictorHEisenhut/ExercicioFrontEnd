@@ -13,7 +13,7 @@
         <thead>
             <tr>
                 <th>@Html.DisplayNameFor(model => model.Id)</th>
-                <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                <th>@Html.ActionLink("Nome", "Index", new {sortOrder = ViewBag.nomeSortParam})</th>
                 <th>@Html.DisplayNameFor(model => model.Email)</th>
                 <th>@Html.DisplayNameFor(model => model.Fone)</th>
                 <th></th>
