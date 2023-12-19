@@ -6,16 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AulaEntity.Models;
+using AulaEntity.Models.ViewModels;
+using AutoMapper;
 
 namespace AulaEntity.Controllers
 {
     public class ContatoController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public ContatoController(AppDbContext context)
+        public ContatoController(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: Contato
@@ -55,8 +59,10 @@ namespace AulaEntity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Email,Fone")] Contato contato)
+        public async Task<IActionResult> Create(CreateContatoVM contatoVM)
         {
+            
+            Contato contato = _mapper.Map<Contato>(contatoVM);
             if (ModelState.IsValid)
             {
                 _context.Add(contato);
@@ -87,8 +93,10 @@ namespace AulaEntity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Email,Fone")] Contato contato)
+        public async Task<IActionResult> Edit(int id, UpdateContatoVM contatoVm)
         {
+            Contato contato = _mapper.Map<Contato>(contatoVm);
+            contato.Id = id;
             if (id != contato.Id)
             {
                 return NotFound();
