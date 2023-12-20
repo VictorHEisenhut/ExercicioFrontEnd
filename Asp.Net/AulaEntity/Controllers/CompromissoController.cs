@@ -6,23 +6,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AulaEntity.Models;
+using AulaEntity.Models.ViewModels.Compromisso;
+using AutoMapper;
 
 namespace AulaEntity.Controllers
 {
     public class CompromissoController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public CompromissoController(AppDbContext context)
+        public CompromissoController(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: Compromisso
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Compromisso.Include(c => c.Contato).Include(c => c.Local);
-            return View(await appDbContext.ToListAsync());
+            List<ReadCompromissoVM> compromissos = _mapper.Map<List<ReadCompromissoVM>>(await _context.Compromisso
+                .Include(c => c.Contato).Include(c => c.Local).ToListAsync());
+            return View(compromissos);
         }
 
         // GET: Compromisso/Details/5
@@ -58,8 +63,9 @@ namespace AulaEntity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Descricao,ContatoId,LocalId")] Compromisso compromisso)
+        public async Task<IActionResult> Create(CreateCompromissoVM compromissoVM)
         {
+            Compromisso compromisso = _mapper.Map<Compromisso>(compromissoVM);
             compromisso.Contato = _context.Contato.FirstOrDefault(c => c.Id == compromisso.ContatoId);
             compromisso.Local = _context.Local.FirstOrDefault(c => c.Id == compromisso.LocalId);
             
@@ -87,8 +93,8 @@ namespace AulaEntity.Controllers
             {
                 return NotFound();
             }
-            ViewData["ContatoId"] = new SelectList(_context.Contato, "Id", "Id", compromisso.ContatoId);
-            ViewData["LocalId"] = new SelectList(_context.Local, "Id", "Id", compromisso.LocalId);
+            ViewData["ContatoId"] = new SelectList(_context.Contato, "Id", "Nome", compromisso.ContatoId);
+            ViewData["LocalId"] = new SelectList(_context.Local, "Id", "Nome", compromisso.LocalId);
             return View(compromisso);
         }
 
@@ -97,8 +103,9 @@ namespace AulaEntity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Descricao,ContatoId,LocalId")] Compromisso compromisso)
+        public async Task<IActionResult> Edit(int id, UpdateCompromissoVM compromissoVm)
         {
+            Compromisso compromisso = await _context.Compromisso.FirstOrDefaultAsync(c => c.Id == id);
             if (id != compromisso.Id)
             {
                 return NotFound();
@@ -108,7 +115,7 @@ namespace AulaEntity.Controllers
             {
                 try
                 {
-                    _context.Update(compromisso);
+                    _context.Update(_mapper.Map(compromissoVm, compromisso));
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

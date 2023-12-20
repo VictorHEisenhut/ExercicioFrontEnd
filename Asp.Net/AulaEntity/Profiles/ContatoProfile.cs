@@ -1,5 +1,5 @@
 ﻿using AulaEntity.Models;
-using AulaEntity.Models.ViewModels;
+using AulaEntity.Models.ViewModels.Contato;
 using AutoMapper;
 using System.Runtime.CompilerServices;
 

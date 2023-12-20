@@ -6,16 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AulaEntity.Models;
+using AulaEntity.Models.ViewModels.Local;
+using AutoMapper;
 
 namespace AulaEntity.Controllers
 {
     public class LocalController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public LocalController(AppDbContext context)
+        public LocalController(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: Local
@@ -55,8 +59,9 @@ namespace AulaEntity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cep,Estado,Cidade,Endereco,Bairro,Numero")] Local local)
+        public async Task<IActionResult> Create(CreateLocalVM localVm)
         {
+            Local local = _mapper.Map<Local>(localVm);
             if (ModelState.IsValid)
             {
                 _context.Add(local);
@@ -87,8 +92,9 @@ namespace AulaEntity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cep,Estado,Cidade,Endereco,Bairro,Numero")] Local local)
+        public async Task<IActionResult> Edit(int id, UpdateLocalVM localVM)
         {
+            Local local = await _context.Local.FirstOrDefaultAsync(l => l.Id == id);
             if (id != local.Id)
             {
                 return NotFound();
@@ -98,7 +104,8 @@ namespace AulaEntity.Controllers
             {
                 try
                 {
-                    _context.Update(local);
+                    
+                    _context.Update(_mapper.Map(localVM, local));
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

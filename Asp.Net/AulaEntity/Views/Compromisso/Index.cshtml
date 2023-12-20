@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AulaEntity.Models.Compromisso>
+﻿@model IEnumerable<AulaEntity.Models.ViewModels.Compromisso.ReadCompromissoVM>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,6 +16,9 @@
                 @Html.DisplayNameFor(model => model.Descricao)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Contato)
             </th>
             <th>
@@ -30,11 +33,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Contato.Id)
+                @Html.DisplayFor(modelItem => item.Contato.Nome)
+                <br/>
+                @Html.DisplayFor(modelItem => item.Contato.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Local.Id)
+                @Html.DisplayFor(modelItem => item.Local.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

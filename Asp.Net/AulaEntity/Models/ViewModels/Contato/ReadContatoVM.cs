@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AulaEntity.Models.ViewModels
+namespace AulaEntity.Models.ViewModels.Contato
 {
     public class ReadContatoVM
     {

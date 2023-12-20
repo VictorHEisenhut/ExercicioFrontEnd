@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AulaEntity.Models;
-using AulaEntity.Models.ViewModels;
 using AutoMapper;
+using AulaEntity.Models.ViewModels.Contato;
 
 namespace AulaEntity.Controllers
 {
@@ -25,6 +25,8 @@ namespace AulaEntity.Controllers
         // GET: Contato
         public async Task<IActionResult> Index()
         {
+
+
               return _context.Contato != null ? 
                           View(await _context.Contato.ToListAsync()) :
                           Problem("Entity set 'AppDbContext.Contato'  is null.");
@@ -95,8 +97,7 @@ namespace AulaEntity.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, UpdateContatoVM contatoVm)
         {
-            Contato contato = _mapper.Map<Contato>(contatoVm);
-            contato.Id = id;
+            Contato contato = await _context.Contato.FirstOrDefaultAsync(c => c.Id == id);
             if (id != contato.Id)
             {
                 return NotFound();
@@ -106,7 +107,7 @@ namespace AulaEntity.Controllers
             {
                 try
                 {
-                    _context.Update(contato);
+                    _context.Update(_mapper.Map(contatoVm, contato));
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
