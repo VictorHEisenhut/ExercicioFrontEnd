@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ydkspyqKrjFl1zUq5J2+S88dPgpS0QeaVmjuQbFtY2nv56KIYvRYz3AyGdrXvU44ZE6Dq/hlpNt67Rv3/KeKoQ==",
+  "dgSpecHash": "QJXzRUNchnGzdzDKgTWhyh1UR1ueTmOKIGAfTzm0ByM9juoE66OVLEtEWKfFOrEOkIEkotMn0A8v6tWtZUxucw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\victor.eisenhut\\source\\repos\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj",
+  "projectFilePath": "C:\\Users\\victor.eisenhut\\Desktop\\Exercicios-Entra21\\API\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\victor.eisenhut\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\victor.eisenhut\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

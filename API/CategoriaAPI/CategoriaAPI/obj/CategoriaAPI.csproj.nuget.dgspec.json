@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\victor.eisenhut\\source\\repos\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj": {}
+    "C:\\Users\\victor.eisenhut\\Desktop\\Exercicios-Entra21\\API\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\victor.eisenhut\\source\\repos\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj": {
+    "C:\\Users\\victor.eisenhut\\Desktop\\Exercicios-Entra21\\API\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victor.eisenhut\\source\\repos\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj",
+        "projectUniqueName": "C:\\Users\\victor.eisenhut\\Desktop\\Exercicios-Entra21\\API\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj",
         "projectName": "CategoriaAPI",
-        "projectPath": "C:\\Users\\victor.eisenhut\\source\\repos\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj",
+        "projectPath": "C:\\Users\\victor.eisenhut\\Desktop\\Exercicios-Entra21\\API\\CategoriaAPI\\CategoriaAPI\\CategoriaAPI.csproj",
         "packagesPath": "C:\\Users\\victor.eisenhut\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victor.eisenhut\\source\\repos\\CategoriaAPI\\CategoriaAPI\\obj\\",
+        "outputPath": "C:\\Users\\victor.eisenhut\\Desktop\\Exercicios-Entra21\\API\\CategoriaAPI\\CategoriaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\victor.eisenhut\\AppData\\Roaming\\NuGet\\NuGet.Config",

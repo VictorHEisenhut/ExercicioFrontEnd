@@ -52,17 +52,20 @@ namespace CategoriaAPI.Controllers
             return produto;
         }
         
-        [HttpGet("{CategoriaId}")]
-        public async Task<ActionResult<List<Produto>>> GetProdutosByCategoria(int CategoriaId)
+        [HttpGet("categoria/{categoriaId}")]
+        
+        public async Task<ActionResult<List<Produto>>> GetProdutosByCategoria(int categoriaId)
         {
             List<Produto> prods = new();
             var produtos = await _context.Produtos.ToListAsync();
             foreach (var produto in produtos)
             {
-                if (produto.CategoriaId == CategoriaId)
+                if (produto.CategoriaId == categoriaId)
                 {
+
                     prods.Add(produto);
                 }
+                produto.Categoria = await _context.Categorias.FirstOrDefaultAsync(c => c.Id == produto.CategoriaId);
             }   
 
 

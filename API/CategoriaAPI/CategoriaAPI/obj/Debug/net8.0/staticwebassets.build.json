@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Vh5iCAo/HVpH6cpkfAQh8gC5A8UJhNmCq1dHPoXNMT4=",
+  "Hash": "oDBRvBEaB2d6W5YyN3CrwtFnAzWTs2JHUOSDkYkd9+A=",
   "Source": "CategoriaAPI",
   "BasePath": "_content/CategoriaAPI",
   "Mode": "Default",
@@ -47,10 +47,10 @@
       "OriginalItemSpec": "C:\\Users\\victor.eisenhut\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "C:\\Users\\victor.eisenhut\\source\\repos\\CategoriaAPI\\CategoriaAPI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CategoriaAPI.styles.css",
+      "Identity": "C:\\Users\\victor.eisenhut\\Desktop\\Exercicios-Entra21\\API\\CategoriaAPI\\CategoriaAPI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CategoriaAPI.styles.css",
       "SourceId": "CategoriaAPI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\victor.eisenhut\\source\\repos\\CategoriaAPI\\CategoriaAPI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\victor.eisenhut\\Desktop\\Exercicios-Entra21\\API\\CategoriaAPI\\CategoriaAPI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CategoriaAPI",
       "RelativePath": "CategoriaAPI.styles.css",
       "AssetKind": "All",
@@ -63,7 +63,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\victor.eisenhut\\source\\repos\\CategoriaAPI\\CategoriaAPI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CategoriaAPI.styles.css"
+      "OriginalItemSpec": "C:\\Users\\victor.eisenhut\\Desktop\\Exercicios-Entra21\\API\\CategoriaAPI\\CategoriaAPI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CategoriaAPI.styles.css"
     }
   ]
 }
