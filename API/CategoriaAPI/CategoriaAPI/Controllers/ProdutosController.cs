@@ -77,6 +77,29 @@ namespace CategoriaAPI.Controllers
             return prods;
         }
 
+        [HttpGet("descricao")]
+        public async Task<ActionResult<IEnumerable<Produto>>> GetProdutosByDescricao([FromQuery] string descricao)
+        {
+            var produtos = await _context.Produtos.ToListAsync();
+            
+            var prods = (from prod in produtos where prod.Descricao.ToLower().Contains(descricao.ToLower()) select prod).ToList();
+            prods.ForEach(x => x.Categoria = _context.Categorias.FirstOrDefault(c => c.Id == x.CategoriaId));
+            return prods;
+        }
+
+        [HttpGet("pages")]
+        public async Task<ActionResult<IEnumerable<Produto>>> GetProdutosPaginado([FromQuery] int pageNumber = 0, [FromQuery] int pageSize = 5)
+        {
+            var prods = await _context.Produtos
+                .AsNoTracking()
+                .Skip(pageNumber * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+            prods.ForEach(p => p.Categoria = _context.Categorias.FirstOrDefault(c => c.Id == p.CategoriaId));
+
+            return prods;
+        }
+
         // PUT: api/Produtos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
