@@ -28,6 +28,11 @@ namespace CategoriaAPI
                 app.UseSwaggerUI();
             }
 
+            app.UseCors(opt =>
+            {
+                opt.AllowAnyOrigin().AllowAnyHeader();
+            });
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
