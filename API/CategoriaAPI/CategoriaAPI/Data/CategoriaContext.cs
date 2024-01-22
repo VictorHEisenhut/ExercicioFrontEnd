@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CategoriaAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using System.Data.Common;
 
@@ -13,6 +14,7 @@ namespace CategoriaAPI.Data
 
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<User> Users { get; set; }
 
 
         private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\victor.eisenhut\Documents\categoriaDb.mdf;Integrated Security=True;Connect Timeout=30";

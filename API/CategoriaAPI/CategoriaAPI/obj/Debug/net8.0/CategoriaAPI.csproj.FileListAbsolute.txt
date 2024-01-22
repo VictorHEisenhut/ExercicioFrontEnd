@@ -513,3 +513,11 @@ C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAP
 C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\obj\Debug\net8.0\CategoriaAPI.pdb
 C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\obj\Debug\net8.0\CategoriaAPI.genruntimeconfig.cache
 C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\obj\Debug\net8.0\ref\CategoriaAPI.dll
+C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\bin\Debug\net8.0\Microsoft.JSInterop.dll
+C:\Users\victor.eisenhut\Desktop\Exercicios-Entra21\API\CategoriaAPI\CategoriaAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
